@@ -1,0 +1,3 @@
+NameError in line 149 of /Users/hongtaoh/Desktop/github/31vis/workflow/Snakefile:
+name 'OPENALEX_CITATION_CITATION_DF' is not defined
+  File "/Users/hongtaoh/Desktop/github/31vis/workflow/Snakefile", line 149, in <module>

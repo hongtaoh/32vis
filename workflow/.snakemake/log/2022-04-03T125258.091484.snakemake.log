@@ -1,0 +1,3 @@
+TypeError in line 283 of /Users/hongtaoh/Desktop/github/32vis/workflow/Snakefile:
+priority() missing 1 required positional argument: 'priority'
+  File "/Users/hongtaoh/Desktop/github/32vis/workflow/Snakefile", line 283, in <module>

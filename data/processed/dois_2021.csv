@@ -1,0 +1,171 @@
+Conference,Year,Title,DOI
+VIS,2021,Simultaneous Matrix Orderings for Graph Collections,10.1109/tvcg.2021.3114773
+VIS,2021,IRVINE: A Design Study on Analyzing Correlation Patterns of Electrical Engines,10.1109/tvcg.2021.3114797
+VIS,2021,Perception! Immersion! Empowerment! Superpowers as Inspiration for Visualization,10.1109/tvcg.2021.3114844
+VIS,2021,Feature Curves and Surfaces of 3D Asymmetric Tensor Fields,10.1109/tvcg.2021.3114808
+VIS,2021,AffectiveTDA: Using Topological Data Analysis for Improved Explainability in Affective Computing,10.1109/tvcg.2021.3114784
+VIS,2021,Human-in-the-loop Extraction of Interpretable Concepts in Deep Learning Models,10.1109/tvcg.2021.3114837
+VIS,2021,Towards Visual Explainable Active Learning for Zero-Shot Classification,10.1109/tvcg.2021.3114793
+VIS,2021,M^2Lens: Visualizing and Explaining Multimodal Models for Sentiment Analysis,10.1109/tvcg.2021.3114794
+VIS,2021,NeuroCartography: Scalable Automatic Visual Summarization of Concepts in Deep Neural Networks,10.1109/tvcg.2021.3114858
+VIS,2021,Visual Analytics for RNN-Based Deep Reinforcement Learning,10.1109/tvcg.2021.3076749
+VIS,2021,Task-Based Effectiveness of Interactive Contiguous Area Cartograms,10.1109/tvcg.2020.3041745
+VIS,2021,Nebula: A Coordinating Grammar of Graphics,10.1109/tvcg.2021.3076222
+VIS,2021,Rotate or Wrap? Interactive Visualisations of Cyclical Data on Cylindrical or Toroidal Topologies,10.1109/tvcg.2021.3114693
+VIS,2021,DIEL: Interactive Visualization Beyond the Here and Now,10.1109/tvcg.2021.3114796
+VIS,2021,VizSnippets: Compressing Visualization Bundles Into Representative Previews for Browsing Visualization Collections,10.1109/tvcg.2021.3114841
+VIS,2021,Learning Adaptive Sampling and Reconstruction for Volume Visualization,10.1109/tvcg.2020.3039340
+VIS,2021,STNet: An End-to-End Generative Framework for Synthesizing Spatiotemporal Super-Resolution Volumes,10.1109/tvcg.2021.3114815
+VIS,2021,Interactive Exploration of Physically-Observable Objective Vortices in Unsteady 2D Flow,10.1109/tvcg.2021.3115565
+VIS,2021,Visual Analysis of Multi-Parameter Distributions across Ensembles of 3D Fields,10.1109/tvcg.2021.3061925
+VIS,2021,Context Matters: A Theory of Semantic Discriminability for Perceptual Encoding Systems,10.1109/tvcg.2021.3114780
+VIS,2021,Conceptual Metaphor and Graphical Convention Influence the Interpretation of Line Graphs,10.1109/tvcg.2021.3088343
+VIS,2021,Affective Congruence in Visualization Design: Influences on Reading Categorical Maps,10.1109/tvcg.2021.3050118
+VIS,2021,Augmenting Parallel Coordinates Plots with Color-coded Stacked Histograms,10.1109/tvcg.2020.3038446
+VIS,2021,Seek for Success: A Visualization Approach for Understanding the Dynamics of Academic Careers,10.1109/tvcg.2021.3114790
+VIS,2021,VitaLITy: Promoting Serendipitous Discovery of Academic Literature with Transformers & Visual Analytics,10.1109/tvcg.2021.3114820
+VIS,2021,VIS30K: A Collection of Figures and Tables From IEEE Visualization Conference Publications,10.1109/tvcg.2021.3054916
+VIS,2021,Gender in 30 Years of IEEE Visualization,10.1109/tvcg.2021.3114787
+VIS,2021,E-ffective: A Visual Analytic System for Exploring the Emotion and Effectiveness of Inspirational Speeches,10.1109/tvcg.2021.3114789
+VIS,2021,Explanatory Journeys: Visualising to Understand and Explain Administrative Justice Paths of Redress,10.1109/tvcg.2021.3114818
+VIS,2021,The Unmet Data Visualization Needs of Decision Makers within Organizations,10.1109/tvcg.2021.3074023
+VIS,2021,Knowledge Rocks: Adding Knowledge Assistance to Visualization Systems,10.1109/tvcg.2021.3114687
+VIS,2021,A Critical Reflection on Visualization Research: Where Do Decision Making Tasks Hide?,10.1109/tvcg.2021.3114813
+VIS,2021,From Jam Session to Concert Hall: Synchronous Communication and Collaboration Around Data in Organizations,10.1109/tvcg.2021.3114760
+VIS,2021,Causal Support: Modeling Causal Inferences with Visualizations,10.1109/tvcg.2021.3114824
+VIS,2021,Sibyl: Understanding and Addressing the Usability Challenges of Machine Learning In High-Stakes Decision Making,10.1109/tvcg.2021.3114864
+VIS,2021,Semantic Snapping for Guided Multi-View Visualization Design,10.1109/tvcg.2021.3114860
+VIS,2021,SightBi: Exploring Cross-View Data Relationships with Biclusters,10.1109/tvcg.2021.3114801
+VIS,2021,matExplorer: Visual Exploration on Predicting of Ionic Conductivity for Solid-State Electrolytes,10.1109/tvcg.2021.3114812
+VIS,2021,"TimeTubesX: A Query-Driven Visual Exploration of Observable, Photometric, and Polarimetric Behaviors of Blazars",10.1109/tvcg.2020.3025090
+VIS,2021,Towards replacing physical testing of granular materials with a Topology-based Model,10.1109/tvcg.2021.3114819
+VIS,2021,Tracking Internal Frames of Reference for Consistent Molecular Distribution Functions,10.1109/tvcg.2021.3051632
+VIS,2021,Data Badges: Making an Academic Profile through a DIY wearable physicalisation,10.1109/mcg.2020.3025504
+VIS,2021,Move&Find: The value of kinesthetic experience in a casual data representation,10.1109/mcg.2020.3025385
+VIS,2021,Slave Voyages:reflections on data sculptures,10.1109/mcg.2020.3025183
+VIS,2021,Narrative Physicalisation: Supporting Interactive Engagement with Personal Data,10.1109/mcg.2020.3025078
+VIS,2021,Data Clothing and BigBarChart: designing physical data reports on indoor pollutants for individuals and communities,10.1109/mcg.2020.3025322
+VIS,2021,InfoColorizer: Interactive Recommendation of Color Palettes for Infographics,10.1109/tvcg.2021.3085327
+VIS,2021,A Mixed-Initiative Approach to Reusing Infographic Charts,10.1109/tvcg.2021.3114856
+VIS,2021,Kori: Interactive Synthesis of Text and Charts in Data Documents,10.1109/tvcg.2021.3114802
+VIS,2021,Deconstructing Categorization in Visualization Recommendation: A Taxonomy and Comparative Study,10.1109/tvcg.2021.3085751
+VIS,2021,KG4Vis: A Knowledge Graph-Based Approach for Visualization Recommendation,10.1109/tvcg.2021.3114863
+VIS,2021,VizLinter: A Linter and Fixer Framework for Data Visualization,10.1109/tvcg.2021.3114804
+VIS,2021,Propagating Visual Designs to Numerous Plots and Dashboards,10.1109/tvcg.2021.3114828
+VIS,2021,Exploring the Personal Informatics Analysis Gap: “There’s a Lot of Bacon”,10.1109/tvcg.2021.3114798
+VIS,2021,What’s the Situation with Situated Visualization? A Survey and Perspectives on Situatedness,10.1109/tvcg.2021.3114835
+VIS,2021,TIVEE: Visual Exploration and Explanation of Badminton Tactics in Immersive Visualizations,10.1109/tvcg.2021.3114861
+VIS,2021,Touch and Beyond: Comparing Physical and Virtual Reality Visualizations,10.1109/tvcg.2020.3023336
+VIS,2021,An Automated Approach to Reasoning About Task-Oriented Visualization Insights in Responsive Visualization,10.1109/tvcg.2021.3114782
+VIS,2021,Imma Sort by Two or More Attributes With Interpretable Monotonic Multi-Attribute Sorting,10.1109/tvcg.2020.3043487
+VIS,2021,Integrated Dual Analysis of Quantitative and Qualitative High-Dimensional Data,10.1109/tvcg.2021.3056424
+VIS,2021,Revisiting Dimensionality Reduction Approaches for Visual Cluster Analysis: An Empirical Study,10.1109/tvcg.2021.3114694
+VIS,2021,DimLift: Interactive Hierarchical Data Exploration through Dimensional Bundling,10.1109/tvcg.2021.3057519
+VIS,2021,Attribute-based Explanations of Non-Linear Embeddings of High-Dimensional Data,10.1109/tvcg.2021.3114870
+VIS,2021,Measuring and Explaining the Inter-Cluster Reliability of Multidimensional Projections,10.1109/tvcg.2021.3114833
+VIS,2021,Dynamic 3D Visualization of Climate Model Development and Results,10.1109/mcg.2020.3042587
+VIS,2021,Exploring the Design Space of Sankey Diagrams for the Food-Energy-Water Nexus,10.1109/mcg.2019.2927556
+VIS,2021,QuteVis: Visually Studying Transportation Patterns Using Multi-Sketch Query of Joint Traffic Situations,10.1109/mcg.2019.2911230
+VIS,2021,Many Views Are Not Enough: Designing for Synoptic Insights in Cultural Collections,10.1109/mcg.2020.2985368
+VIS,2021,CLEVis: A Semantic Driven Visual Analytics System for Community Level Events,10.1109/mcg.2020.2973939
+VIS,2021,Augmenting Sports Videos with VisCommentator,10.1109/tvcg.2021.3114806
+VIS,2021,TacticFlow: Visual Analytics of Ever-Changing Tactics in Racket Sports,10.1109/tvcg.2021.3114832
+VIS,2021,VideoModerator: A Risk-aware Framework for Multimodal Video Moderation in E-Commerce,10.1109/tvcg.2021.3114781
+VIS,2021,A Visualization Approach for Monitoring Order Processing in E-Commerce Warehouse,10.1109/tvcg.2021.3114878
+VIS,2021,MiningVis: Visual Analytics of the Bitcoin Mining Economy,10.1109/tvcg.2021.3114821
+VIS,2021,Real-Time Visual Analysis of High-Volume Social Media Posts,10.1109/tvcg.2021.3114800
+VIS,2021,CoUX: Collaborative Visual Analysis of Think-Aloud Usability Test Videos for Digital Interfaces,10.1109/tvcg.2021.3114822
+VIS,2021,Professional Differences: A Comparative Study of Visualization Task Performance and Spatial Ability Across Disciplines,10.1109/tvcg.2021.3114805
+VIS,2021,"Rainbow Dash: Intuitiveness, Interpretability and Memorability of the Rainbow Color Scheme in Visualization",10.1109/tvcg.2020.3035823
+VIS,2021,"Learning Objectives, Insights, and Assessments: How Specification Formats Impact Design",10.1109/tvcg.2021.3114811
+VIS,2021,Untidy Data: The Unreasonable Effectiveness of Tables,10.1109/tvcg.2021.3114830
+VIS,2021,Accessible Visualization via Natural Language Descriptions: A Four-Level Model of Semantic Content,10.1109/tvcg.2021.3114770
+VIS,2021,Towards Understanding Sensory Substitution for Accessible Visualization: An Interview Study,10.1109/tvcg.2021.3114829
+VIS,2021,Communicating Visualizations without Visuals: Investigation of Visualization Alternative Text for People with Visual Impairments,10.1109/tvcg.2021.3114846
+VIS,2021,GenNI: Human-AI Collaboration for Data-Backed Text Generation,10.1109/tvcg.2021.3114845
+VIS,2021,Words of Estimative Correlation: Studying Verbalizations of Scatterplots,10.1109/tvcg.2020.3023537
+VIS,2021,FTK: A Simplicial Spacetime Meshing Framework for Robust and Scalable Feature Tracking,10.1109/tvcg.2021.3073399
+VIS,2021,A Progressive Approach to Scalar Field Topology,10.1109/tvcg.2021.3060500
+VIS,2021,Unordered Task-Parallel Augmented Merge Tree Construction,10.1109/tvcg.2021.3076875
+VIS,2021,"Wasserstein Distances, Geodesics and Barycenters of Merge Trees",10.1109/tvcg.2021.3114839
+VIS,2021,Optimization and Augmentation for Data Parallel Contour Trees,10.1109/tvcg.2021.3064385
+VIS,2021,A Domain-Oblivious Approach for Learning Concise Representations of Filtered Topological Spaces for Clustering,10.1109/tvcg.2021.3114872
+VIS,2021,ChartSeer: Interactive Steering Exploratory Visual Analysis with Machine Intelligence,10.1109/tvcg.2020.3018724
+VIS,2021,Net2Vis - A Visual Grammar for Automatically Generating Publication-Tailored CNN Architecture Visualizations,10.1109/tvcg.2021.3057483
+VIS,2021,THALIS: Human-Machine Analysis of Longitudinal Symptoms in Cancer Therapy,10.1109/tvcg.2021.3114810
+VIS,2021,MultiVision: Designing Analytical Dashboards with Deep Learning Based Recommendation,10.1109/tvcg.2021.3114826
+VIS,2021,Geo-Context Aware Study of Vision-Based Autonomous Driving Models and Spatial Video Data,10.1109/tvcg.2021.3114853
+VIS,2021,Where Can We Help? A Visual Analytics Approach to Diagnosing and Improving Semantic Segmentation of Movable Objects,10.1109/tvcg.2021.3114855
+VIS,2021,Compass: Towards Better Causal Analysis of Urban Time Series,10.1109/tvcg.2021.3114875
+VIS,2021,DDLVis: Real-time Visual Query of Spatiotemporal Data Distribution via Density Dictionary Learning,10.1109/tvcg.2021.3114762
+VIS,2021,Interactive Focus+Context Rendering for Hexahedral Mesh Inspection,10.1109/tvcg.2021.3074607
+VIS,2021,Accelerating Unstructured Mesh Point Location with RT Cores,10.1109/tvcg.2020.3042930
+VIS,2021,Probabilistic Occlusion Culling using Confidence Maps for High-Quality Rendering of Large Particle Data,10.1109/tvcg.2021.3114788
+VIS,2021,A Memory Efficient Encoding for Ray Tracing Large Unstructured Data,10.1109/tvcg.2021.3114869
+VIS,2021,Pyramid-based Scatterplots Sampling for Progressive and Streaming Data Visualization,10.1109/tvcg.2021.3114880
+VIS,2021,KD-Box: Line-segment-based KD-tree for Interactive Exploration of Large-scale Time-Series Data,10.1109/tvcg.2021.3114865
+VIS,2021,Sequen-C: A Multilevel Overview of Temporal Event Sequences,10.1109/tvcg.2021.3114868
+VIS,2021,EVis: Visually Analyzing Environmentally Driven Events,10.1109/tvcg.2021.3114867
+VIS,2021,HisVA: a Visual Analytics System for Learning History,10.1109/tvcg.2021.3086414
+VIS,2021,SSR-TVD: Spatial Super-Resolution for Time-Varying Data Analysis and Visualization,10.1109/tvcg.2020.3032123
+VIS,2021,Multi-level Area Balancing of Clustered Graphs,10.1109/tvcg.2020.3038154
+VIS,2021,Edge-Path Bundling: A Less Ambiguous Edge Bundling Approach,10.1109/tvcg.2021.3114795
+VIS,2021,Interactive Visual Pattern Search on Graph Data via Graph Representation Learning,10.1109/tvcg.2021.3114857
+VIS,2021,"Left, Right, and Gender: Exploring Interaction Traces to Mitigate Human Biases",10.1109/tvcg.2021.3114862
+VIS,2021,VisQA: X-raying Vision and Language Reasoning in Transformers,10.1109/tvcg.2021.3114683
+VIS,2021,The Weighted Average Illusion: Biases in Perceived Mean Position in Scatterplots,10.1109/tvcg.2021.3114783
+VIS,2021,Impact of Cognitive Biases on Progressive Visualization,10.1109/tvcg.2021.3051013
+VIS,2021,Improving Visualization Interpretation Using Counterfactuals,10.1109/tvcg.2021.3114779
+VIS,2021,Lumos: Increasing Awareness of Analytic Behavior during Visual Data Analysis,10.1109/tvcg.2021.3114827
+VIS,2021,Kineticharts: Augmenting Affective Expressiveness of Charts in Data Stories with Animation Design,10.1109/tvcg.2021.3114775
+VIS,2021,Declutter and Focus: Empirically Evaluating Design Guidelines for Effective Data Communication,10.1109/tvcg.2021.3068337
+VIS,2021,Showing Data about People: A Design Space of Anthropographics,10.1109/tvcg.2020.3023013
+VIS,2021,Visual Arrangements of Bar Charts Influence Comparisons in Viewer Takeaways,10.1109/tvcg.2021.3114823
+VIS,2021,Generative Design Inspiration for Glyphs with Diatoms,10.1109/tvcg.2021.3114792
+VIS,2021,GlyphCreator: Towards Automatic Generation of Example-based Circular Glyphs,10.1109/tvcg.2021.3114877
+VIS,2021,Shape-driven Coordinate Ordering for Star Glyph Sets via Reinforcement Learning,10.1109/tvcg.2021.3052167
+VIS,2021,F2-Bubbles: Faithful Bubble Set Construction and Flexible Editing,10.1109/tvcg.2021.3114761
+VIS,2021,spEuler: Semantics-preserving Euler Diagrams,10.1109/tvcg.2021.3114834
+VIS,2021,Visualization of 3D Stress Tensor Fields Using Superquadric Glyphs on Displacement Streamlines,10.1109/tvcg.2020.2968911
+VIS,2021,Visualizing Uncertainty in Probabilistic Graphs with Network Hypothetical Outcome Plots (NetHOPs),10.1109/tvcg.2021.3114679
+VIS,2021,"Implicit Error, Uncertainty and Confidence in Visualization: an Archaeological Case Study",10.1109/tvcg.2021.3088339
+VIS,2021,Can Visualization Alleviate Dichotomous Thinking? Effects of Visual Representations on the Cliff Effect,10.1109/tvcg.2021.3073466
+VIS,2021,Effect of Uncertainty Visualizations on Myopic Loss Aversion and Equity Premium Puzzle in Retirement Investment Decisions,10.1109/tvcg.2021.3114692
+VIS,2021,Inspecting the Running Process of Horizontal Federated Learning via Visual Analytics,10.1109/tvcg.2021.3074010
+VIS,2021,An Evaluation-Focused Framework for Visualization Recommendation Algorithms,10.1109/tvcg.2021.3114814
+VIS,2021,FairRankVis: A Visual Analytics Framework for Exploring Algorithmic Fairness in Graph Mining Models,10.1109/tvcg.2021.3114850
+VIS,2021,embComp: Visual Interactive Comparison of Vector Embeddings,10.1109/tvcg.2020.3045918
+VIS,2021,VBridge: Connecting the Dots Between Features and Data to Explain Healthcare Models,10.1109/tvcg.2021.3114836
+VIS,2021,Scope2Screen: Focus+Context Techniques for Pathology Tumor Assessment in Multivariate Image Data,10.1109/tvcg.2021.3114786
+VIS,2021,Multiscale Unfolding: Illustratively Visualizing the Whole Genome at a Glance,10.1109/tvcg.2021.3065443
+VIS,2021,Rapid Labels: Point-Feature Labeling on GPU,10.1109/tvcg.2021.3114854
+VIS,2021,An Efficient Dual-Hierarchy tSNE Minimization,10.1109/tvcg.2021.3114817
+VIS,2021,Joint t-SNE for Comparable Projections of Multiple High-Dimensional Datasets,10.1109/tvcg.2021.3114765
+VIS,2021,Automatic Polygon Layout for Primal-Dual Visualization of Hypergraphs,10.1109/tvcg.2021.3114759
+VIS,2021,Interactive Dimensionality Reduction for Comparative Analysis,10.1109/TVCG.2021.3114807
+VIS,2021,Real-Time Denoising of Volumetric Path Tracing for Direct Volume Rendering,10.1109/TVCG.2020.3037680
+VIS,2021,3D Virtual Pancreatography,10.1109/TVCG.2020.3020958
+VIS,2021,Rethinking the Ranks of Visual Channels,10.1109/TVCG.2021.3114684
+VIS,2021,Modeling Just Noticeable Differences in Charts,10.1109/TVCG.2021.3114874
+VIS,2021,What we talk about when we talk about data physicality,10.1109/MCG.2020.3024146
+VIS,2021,Natural Language to Visualization by Neural Machine Translation,10.1109/TVCG.2021.3114848
+VIS,2021,Gosling: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization,10.1109/TVCG.2021.3114876
+VIS,2021,Interactive Graph Construction for Graph-Based Semi-Supervised Learning,10.1109/TVCG.2021.3084694
+VIS,2021,Differentiable Direct Volume Rendering,10.1109/TVCG.2021.3114769
+VIS,2021,Interactive Visual Exploration of Longitudinal Historical Career Mobility Data,10.1109/TVCG.2021.3067200
+VIS,2021,A State-of-the-Art Survey of Tasks for Tree Design and Evaluation with a Curated Task Dataset,10.1109/TVCG.2021.3064037
+VIS,2021,STRATISFIMAL LAYOUT: A Modular Optimization Model for Laying Out Layered Node-link Network Visualizations,10.1109/TVCG.2021.3114756
+VIS,2021,A Design Space for Applying the Freytag’s Pyramid Structure to Data Stories,10.1109/TVCG.2021.3114774
+VIS,2021,Interactive Data Comics,10.1109/TVCG.2021.3114849
+VIS,2021,Examining Effort in 1D Uncertainty Communication Using Individual Differences in Working Memory and NASA-TLX,10.1109/TVCG.2021.3114803
+VIS,2021,Visualization Equilibrium,10.1109/TVCG.2021.3114842
+VIS,2021,Visual Analysis of Hyperproperties for Understanding Model Checking Results,10.1109/TVCG.2021.3114866
+VIS,2021,COVID-view: Diagnosis of COVID-19 using Chest CT,10.1109/TVCG.2021.3114851
+VIS,2021,ThreadStates: State-based Visual Analysis of Disease Progression,10.1109/TVCG.2021.3114840
+VIS,2021,Loon: Using Exemplars to Visualize Large Scale Microscopy Data,10.1109/TVCG.2021.3114766
+VIS,2021,Scalable Scalable Vector Graphics: Automatic Translation of Interactive SVGs to a Multithread VDOM for Fast Rendering,10.1109/TVCG.2021.3059294
+VIS,2021,Probabilistic Data-Driven Sampling via Multi-Criteria Importance Analysis,10.1109/TVCG.2020.3006426
+VIS,2021,Visual Evaluation for Autonomous Driving,10.1109/TVCG.2021.3114777
+VIS,2021,Visual Cascade Analytics of Large-scale Spatiotemporal Data,10.1109/TVCG.2021.3071387
+VIS,2021,Understanding Missing Links in Bipartite Networks with MissBiN,10.1109/TVCG.2020.3032984
+VIS,2021,Understanding Data Visualization Design Practice,10.1109/TVCG.2021.3114959

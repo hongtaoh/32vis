@@ -1,0 +1,100 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                           count    min threads    max threads
+--------------------------  -------  -------------  -------------
+all                               1              1              1
+get_openalex_author_df            1              1              1
+get_openalex_citation_dfs         1              1              1
+get_openalex_concept_df           1              1              1
+get_vispd_good_papers             1              1              1
+get_vispd_openalex_match_1        1              1              1
+get_vispd_openalex_match_2        1              1              1
+total                             7              1              1
+
+Select jobs to execute...
+
+[Sat Jan 29 12:04:44 2022]
+rule get_vispd_good_papers:
+    input: ../data/raw/vispubdata.csv
+    output: ../data/processed/vispd_good_papers.txt
+    jobid: 1
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 29 12:04:47 2022]
+Finished job 1.
+1 of 7 steps (14%) done
+Select jobs to execute...
+
+[Sat Jan 29 12:04:47 2022]
+rule get_vispd_openalex_match_1:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/interim/vispd_openalex_match_1.csv, ../data/interim/no_result_bad_doi_openalex_1.txt, ../data/interim/no_matching_doi_openalex_1.txt
+    jobid: 3
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 29 12:38:28 2022]
+Finished job 3.
+2 of 7 steps (29%) done
+Select jobs to execute...
+
+[Sat Jan 29 12:38:28 2022]
+rule get_vispd_openalex_match_2:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/interim/vispd_openalex_match_2.csv, ../data/interim/no_result_bad_doi_openalex_2.txt, ../data/interim/no_matching_doi_openalex_2.txt
+    jobid: 4
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 29 13:18:06 2022]
+Finished job 4.
+3 of 7 steps (43%) done
+Select jobs to execute...
+
+[Sat Jan 29 13:18:06 2022]
+rule get_openalex_author_df:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/processed/openalex_author_df.csv, ../data/interim/no_result_bad_doi_openalex_author_df.txt, ../data/interim/no_matching_doi_openalex_author_df.txt
+    jobid: 5
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 29 13:51:21 2022]
+Finished job 5.
+4 of 7 steps (57%) done
+Select jobs to execute...
+
+[Sat Jan 29 13:51:21 2022]
+rule get_openalex_concept_df:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/processed/openalex_concept_df.csv, ../data/interim/no_result_bad_doi_openalex_cocept_df.txt, ../data/interim/no_matching_doi_openalex_concept_df.txt
+    jobid: 6
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 29 14:25:47 2022]
+Finished job 6.
+5 of 7 steps (71%) done
+Select jobs to execute...
+
+[Sat Jan 29 14:25:47 2022]
+rule get_openalex_citation_dfs:
+    input: ../data/interim/vispd_openalex_match_2.csv
+    output: ../data/processed/openalex_citation_author_df.csv, ../data/processed/openalex_citation_concept_df.csv, ../data/processed/openalex_citation_paper_df.csv
+    jobid: 7
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 29 14:26:05 2022]
+Finished job 7.
+6 of 7 steps (86%) done
+Select jobs to execute...
+
+[Sat Jan 29 14:26:05 2022]
+localrule all:
+    input: ../data/processed/vispd_good_papers.txt, ../data/processed/openalex_papers.csv, ../data/interim/vispd_openalex_match_1.csv, ../data/interim/no_result_bad_doi_openalex_1.txt, ../data/interim/no_matching_doi_openalex_1.txt, ../data/interim/vispd_openalex_match_2.csv, ../data/interim/no_result_bad_doi_openalex_2.txt, ../data/interim/no_matching_doi_openalex_2.txt, ../data/processed/openalex_author_df.csv, ../data/interim/no_result_bad_doi_openalex_author_df.txt, ../data/interim/no_matching_doi_openalex_author_df.txt, ../data/processed/openalex_concept_df.csv, ../data/interim/no_result_bad_doi_openalex_cocept_df.txt, ../data/interim/no_matching_doi_openalex_concept_df.txt, ../data/processed/openalex_citation_author_df.csv, ../data/processed/openalex_citation_concept_df.csv, ../data/processed/openalex_citation_paper_df.csv
+    jobid: 0
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 29 14:26:05 2022]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: /Users/hongtaoh/Desktop/github/31vis/workflow/.snakemake/log/2022-01-29T120443.602937.snakemake.log

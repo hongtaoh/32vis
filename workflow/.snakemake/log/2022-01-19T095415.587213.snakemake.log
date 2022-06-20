@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                           count    min threads    max threads
+--------------------------  -------  -------------  -------------
+all                               1              1              1
+get_vispd_openalex_match_1        1              1              1
+total                             2              1              1
+
+Select jobs to execute...
+
+[Wed Jan 19 09:54:16 2022]
+rule get_vispd_openalex_match_1:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/interim/vispd_openalex_match_1.csv, ../data/interim/no_result_bad_doi_openalex_1.txt, ../data/interim/no_matching_doi_openalex_1.txt
+    jobid: 3
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Wed Jan 19 09:54:20 2022]
+Error in rule get_vispd_openalex_match_1:
+    jobid: 3
+    output: ../data/interim/vispd_openalex_match_1.csv, ../data/interim/no_result_bad_doi_openalex_1.txt, ../data/interim/no_matching_doi_openalex_1.txt
+    shell:
+        python scripts/get_vispd_openalex_match_1.py ../data/processed/vispd_good_papers.txt ../data/raw/vispubdata.csv ../data/interim/vispd_openalex_match_1.csv ../data/interim/no_result_bad_doi_openalex_1.txt ../data/interim/no_matching_doi_openalex_1.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/hongtaoh/Desktop/github/31vis/workflow/.snakemake/log/2022-01-19T095415.587213.snakemake.log

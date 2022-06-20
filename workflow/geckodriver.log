@@ -1,0 +1,205 @@
+1655185554258	geckodriver	INFO	Listening on 127.0.0.1:62376
+1655185555305	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileTsvDZU"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655185556753	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileTsvDZU/search.json.mozlz4", (void 0)))
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655185562189	Marionette	INFO	Listening on port 62384
+1655185562337	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655216769071	Marionette	INFO	Stopped listening on port 62384
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1655223428638	geckodriver	INFO	Listening on 127.0.0.1:64515
+1655223429654	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileKf18Uq"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655223431020	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileKf18Uq/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655223434595	Marionette	INFO	Listening on port 64522
+1655223434753	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DUncovering%2BClusters%2Bin%2BCrowded%2BParallel%2BCoordinates%2BVisualizations%26btnG%3D&hl=en&q=EgRIIQKrGP3popUGIhDbE7x1yJseC-29rWworUMeMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DComposite%2BDensity%2BMaps%2Bfor%2BMultivariate%2BTrajectories%26btnG%3D&hl=en&q=EgRIIQKrGNfqopUGIhAQNY1Rm6Lxjm_buEr54J_LMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DConveying%2Bshape%2Band%2Bfeatures%2Bwith%2Bimage-based%2Brelighting%26btnG%3D&hl=en&q=EgRIIQKrGLnropUGIhDH59sEMkHpOSRjDSlkYUUmMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DA%2Bnote%2Bon%2Bspace-filling%2Bvisualizations%2Band%2Bspace-filling%2Bcurves%26btnG%3D&hl=en&q=EgRIIQKrGJ7sopUGIhD7BKTM1C0XMQwaPFbUs1a0MgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DNarratives%253A%2BA%2Bvisualization%2Bto%2Btrack%2Bnarrative%2Bevents%2Bas%2Bthey%2Bdevelop%26btnG%3D&hl=en&q=EgRIIQKrGJbtopUGIhCUED_6XhQdzBwnncrfzJbeMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DVisualizing%2BLarge-Scale%2BUncertainty%2Bin%2BAstrophysical%2BData%26btnG%3D&hl=en&q=EgRIIQKrGNTuopUGIhChPTRnzsNM_z5-Vdd0L8xYMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DStraightening%2BTubular%2BFlow%2Bfor%2BSide-by-Side%2BVisualization%26btnG%3D&hl=en&q=EgRIIQKrGLfvopUGIhAa9PVhv2Qq5FqhTnALzOhBMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DA%2Bradial%2Bfocus%252Bcontext%2Bvisualization%2Bfor%2Bmulti-dimensional%2Bfunctions%26btnG%3D&hl=en&q=EgRIIQKrGLnwopUGIhC3qjR3a4olkBqIe20t8bFXMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DEyegaze%2Banalysis%2Bof%2Bdisplays%2Bwith%2Bcombined%2B2D%2Band%2B3D%2Bviews%26btnG%3D&hl=en&q=EgRIIQKrGKfxopUGIhBQCYaOM1sRnGdROkkZMqyTMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DVisualization%2Bof%2BElectrostatic%2BDipoles%2Bin%2BMolecular%2BDynamics%2Bof%2BMetal%2BOxides%26btnG%3D&hl=en&q=EgRIIQKrGIvyopUGIhC7ntT1ltzbBcjKzlUhitEQMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DAn%2BEvaluation%2Bof%2BVisual%2BSearch%2BSupport%2Bin%2BMaps%26btnG%3D&hl=en&q=EgRIIQKrGKvzopUGIhBnumM41SICxG0bW6m_R8V7MgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DFLDA%253A%2BLatent%2BDirichlet%2BAllocation%2BBased%2BUnsteady%2BFlow%2BAnalysis%26btnG%3D&hl=en&q=EgRIIQKrGI_0opUGIhCeJDoehp4FaBO0gu6dT8pdMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DExploring%2B2D%2Btensor%2Bfields%2Busing%2Bstress%2Bnets%26btnG%3D&hl=en&q=EgRIIQKrGP30opUGIhABHOCx44JsIMev2-610wWBMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DThe%2Bquantum%2BCoulomb%2Bthree-body%2Bproblem%2B-%2BVisualization%2Bof%2Bsimulation%2Bresults%2Band%2Bnumerical%2Bmethods%26btnG%3D&hl=en&q=EgRIIQKrGOH1opUGIhAoaNJ4D2HDB51eVyMzoRjfMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DLassoNet%253A%2BDeep%2BLasso-Selection%2Bof%2B3D%2BPoint%2BClouds%26btnG%3D&hl=en&q=EgRIIQKrGMT2opUGIhCxmIV3FR4fxwsmXjzf319BMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DFTK%253A%2BA%2BSimplicial%2BSpacetime%2BMeshing%2BFramework%2Bfor%2BRobust%2Band%2BScalable%2BFeature%2BTracking%26btnG%3D&hl=en&q=EgRIIQKrGIT4opUGIhDcTz7mFF4XYReGIoMp0aymMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+1655236340872	Marionette	INFO	Stopped listening on port 64522
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1655678675079	geckodriver	INFO	Listening on 127.0.0.1:57593
+1655678676130	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilePfqR8i"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655678677383	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilePfqR8i/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655678680390	Marionette	INFO	Listening on port 57601
+1655678680527	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+1655678857181	Marionette	INFO	Stopped listening on port 57601
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1655678857666	geckodriver	INFO	Listening on 127.0.0.1:57709
+1655678857680	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileQHVvK4"
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655678858702	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+Exiting due to channel error.
+Exiting due to channel error.
+1655679135678	geckodriver	INFO	Listening on 127.0.0.1:57760
+1655679135698	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofile0BMnwQ"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655679136487	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofile0BMnwQ/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655679138883	Marionette	INFO	Listening on port 57765
+1655679139000	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+1655679524582	Marionette	INFO	Stopped listening on port 57765
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1655679535983	geckodriver	INFO	Listening on 127.0.0.1:57916
+1655679537005	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilekp75hR"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655679537871	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilekp75hR/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655679540187	Marionette	INFO	Listening on port 57923
+1655679540229	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+1655680389789	Marionette	INFO	Stopped listening on port 57923
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1655680608038	geckodriver	INFO	Listening on 127.0.0.1:58170
+1655680609062	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilePLrU2M"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655680610009	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilePLrU2M/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655680612286	Marionette	INFO	Listening on port 58177
+1655680612367	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+1655680725884	Marionette	INFO	Stopped listening on port 58177
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1655680728546	geckodriver	INFO	Listening on 127.0.0.1:58277
+1655680729562	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileQgWmSl"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655680730381	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileQgWmSl/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655680732528	Marionette	INFO	Listening on port 58284
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655680732606	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+1655680841765	geckodriver	INFO	Listening on 127.0.0.1:58366
+1655680842788	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileHwycxc"
+1655680842988	Marionette	INFO	Stopped listening on port 58284
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1655680843719	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofileHwycxc/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1655680846413	Marionette	INFO	Listening on port 58373
+1655680846529	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DVisualizing%2Bdiffusion%2Btensor%2Bimages%2Bof%2Bthe%2Bmouse%2Bspinal%2Bcord%26btnG%3D&hl=en&q=EgSSl3RiGLbfvpUGIhDwhJp-cs4Zyio9HgonR9esMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DPargnostics%253A%2BScreen-Space%2BMetrics%2Bfor%2BParallel%2BCoordinates%26btnG%3D&hl=en&q=EgSSl3RiGJngvpUGIhCMEGBaAi4sW4kf4l-tPnTKMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DSuperquadric%2BGlyphs%2Bfor%2BSymmetric%2BSecond-Order%2BTensors%26btnG%3D&hl=en&q=EgSSl3RiGPPhvpUGIhAAaXKnKh-VM7xaakeKk4FGMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+1655681655505	Marionette	INFO	Stopped listening on port 58373
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.

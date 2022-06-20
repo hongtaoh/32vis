@@ -1,0 +1,3 @@
+NameError in line 51 of /Users/hongtaoh/Desktop/github/31vis/workflow/Snakefile:
+name 'GOOD_DOIS' is not defined
+  File "/Users/hongtaoh/Desktop/github/31vis/workflow/Snakefile", line 51, in <module>

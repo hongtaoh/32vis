@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                           count    min threads    max threads
+--------------------------  -------  -------------  -------------
+all                               1              1              1
+get_openalex_author_df            1              1              1
+get_vispd_openalex_match_2        1              1              1
+total                             3              1              1
+
+Select jobs to execute...
+
+[Sat Jan 22 12:04:16 2022]
+rule get_vispd_openalex_match_2:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/interim/vispd_openalex_match_2.csv, ../data/interim/no_result_bad_doi_openalex_2.txt, ../data/interim/no_matching_doi_openalex_2.txt
+    jobid: 4
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 22 12:47:20 2022]
+Finished job 4.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Sat Jan 22 12:47:20 2022]
+rule get_openalex_author_df:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/processed/openalex_author_df.csv, ../data/interim/no_result_bad_doi_openalex_author_df.txt, ../data/interim/no_matching_doi_openalex_author_df.txt
+    jobid: 5
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

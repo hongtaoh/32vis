@@ -1,0 +1,47 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                    count    min threads    max threads
+-----------------------------------  -------  -------------  -------------
+CLASS_country                              1              1              1
+CLASS_type                                 1              1              1
+all                                        1              1              1
+get_HT_cleaned_author_df                   1              1              1
+get_ht_cleaned_paper_df                    1              1              1
+get_merged_author_df                       1              1              1
+get_openalex_citation_dfs                  1              1              1
+get_openalex_reference_dfs                 1              1              1
+get_vispd_openalex_match_2                 1              1              1
+plot_data_author_chord_diagram_data        1              1              1
+plot_sankey_data                           1              1              1
+plot_top_concepts_trends                   1              1              1
+plot_vis_concepts_cooccurance_data         1              1              1
+total                                     13              1              1
+
+Select jobs to execute...
+
+[Sun Jun 12 15:17:00 2022]
+rule get_vispd_openalex_match_2:
+    input: ../data/processed/vispd_plus_good_papers.txt, ../data/processed/vispubdata_plus.csv
+    output: ../data/interim/vispd_openalex_match_2.csv, ../data/interim/checking/title_query_empty_doi_query_404_2.txt, ../data/interim/checking/title_query_404_2.txt, ../data/interim/checking/doi_query_404_2.txt
+    jobid: 5
+    priority: 60
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sun Jun 12 15:56:30 2022]
+Finished job 5.
+1 of 13 steps (8%) done
+Select jobs to execute...
+
+[Sun Jun 12 15:56:30 2022]
+rule get_openalex_citation_dfs:
+    input: ../data/processed/openalex_paper_df.csv
+    output: ../data/processed/large/openalex_citation_author_df.csv, ../data/processed/large/openalex_citation_concept_df.csv, ../data/processed/openalex_citation_paper_df.csv
+    jobid: 8
+    priority: 30
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

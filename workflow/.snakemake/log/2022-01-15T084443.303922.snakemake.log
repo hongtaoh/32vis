@@ -1,0 +1,34 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count    min threads    max threads
+-------------------  -------  -------------  -------------
+all                        1              1              1
+get_openalex_papers        1              1              1
+total                      2              1              1
+
+Select jobs to execute...
+
+[Sat Jan 15 08:44:44 2022]
+rule get_openalex_papers:
+    output: ../data/processed/openalex_papers.csv
+    jobid: 5
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 15 08:45:55 2022]
+Finished job 5.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Sat Jan 15 08:45:55 2022]
+localrule all:
+    input: ../data/interim/sample_ieee_untidy.csv, ../data/interim/sample_ieee_author_tidy.csv, ../data/interim/sample_ieee_pubdate_tidy.csv, ../data/processed/good_dois.txt, ../data/processed/doi_wos_id.csv, ../data/processed/openalex_papers.csv
+    jobid: 0
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jan 15 08:45:55 2022]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /Users/hongtaoh/Desktop/github/31vis/workflow/.snakemake/log/2022-01-15T084443.303922.snakemake.log

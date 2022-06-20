@@ -1,0 +1,334 @@
+from os.path import join as pjoin
+import sys
+
+DATA_DIR = "../data/"
+RAW_DATA_DIR = pjoin(DATA_DIR, "raw")
+INTERIM_DATA_DIR = pjoin(DATA_DIR, "interim")
+CHECKING_DIR = pjoin(INTERIM_DATA_DIR, "checking")
+METHODS_REPORTING_DIR = pjoin(INTERIM_DATA_DIR, 'methods_reporting')
+PROCESSED_DATA_DIR = pjoin(DATA_DIR, "processed")
+PROCESSED_LARGE_DATA_DIR = pjoin(PROCESSED_DATA_DIR, "large")
+CLASSIFIERS_DATA_DIR = pjoin(DATA_DIR, "classifiers")
+PLOTS_DATA_DIR = pjoin(DATA_DIR, "plots")
+HT_CLASS_DATA_DIR = pjoin(DATA_DIR, "ht_class")
+
+###############################################################################
+# Raw Data
+###############################################################################
+
+# raw data file downloaded directly from VISPUBDATA as CSV
+VISPUBDATA = pjoin(RAW_DATA_DIR, 'vispubdata.csv')
+
+###############################################################################
+# Interim outputs
+###############################################################################
+
+VISPD_OPENALEX_MATCH_1 = pjoin(INTERIM_DATA_DIR, 'vispd_openalex_match_1.csv')
+
+TITEL_QUERY_EMPTY_DOI_QUERY_404_1 = pjoin(CHECKING_DIR, 'title_query_empty_doi_query_404_1.txt')
+
+TITLE_QUERY_404_1 = pjoin(CHECKING_DIR, 'title_query_404_1.txt')
+
+VISPD_OPENALEX_MATCH_2 = pjoin(INTERIM_DATA_DIR, 'vispd_openalex_match_2.csv')
+
+TITEL_QUERY_EMPTY_DOI_QUERY_404_2 = pjoin(CHECKING_DIR, 'title_query_empty_doi_query_404_2.txt')
+
+TITLE_QUERY_404_2 = pjoin(CHECKING_DIR, 'title_query_404_2.txt')
+
+DOI_QUERY_404_2 = pjoin(CHECKING_DIR, 'doi_query_404_2.txt')
+
+TITEL_QUERY_EMPTY_DOI_QUERY_404_DFS = pjoin(CHECKING_DIR, 'title_query_empty_doi_query_404_dfs.txt')
+
+TITLE_QUERY_404_DFS = pjoin(CHECKING_DIR, 'title_query_404_dfs.txt')
+
+DOI_QUERY_404_DFS = pjoin(CHECKING_DIR, 'doi_query_404_dfs.txt')
+
+OPENALEX_AUTHOR_DF = pjoin(INTERIM_DATA_DIR, 'openalex_author_df.csv')
+
+IEEE_AUTHOR_DF = pjoin(INTERIM_DATA_DIR, 'ieee_author_df.csv')
+
+AWARD_PAPER_DF = pjoin(INTERIM_DATA_DIR, 'award_paper_df.csv')
+
+IEEE_SCRAPING_PROBLEM_DOIS = pjoin(CHECKING_DIR, 'ieee_scraping_problem_dois.txt')
+
+WOS_ID = pjoin(METHODS_REPORTING_DIR, 'wos_id.csv')
+
+###############################################################################
+# Processed data
+###############################################################################
+
+TITLES_2021 = pjoin(PROCESSED_DATA_DIR, 'titles_2021.csv')
+
+DOIS_2021 = pjoin(PROCESSED_DATA_DIR, 'dois_2021.csv')
+
+VISPUBDATA_PLUS = pjoin(PROCESSED_DATA_DIR, 'vispubdata_plus.csv')
+
+VISPD_PLUS_GOOD_PAPERS = pjoin(PROCESSED_DATA_DIR, 'vispd_plus_good_papers.txt')
+
+PAPERS_TO_STUDY = pjoin(PROCESSED_DATA_DIR, 'papers_to_study.txt')
+
+OPENALEX_PAPER_DF = pjoin(PROCESSED_DATA_DIR, 'openalex_paper_df.csv')
+
+OPENALEX_CONCEPT_DF = pjoin(PROCESSED_DATA_DIR, 'openalex_concept_df.csv')
+
+OPENALEX_REFERENCE_DF = pjoin(PROCESSED_DATA_DIR, 'openalex_reference_df.csv')
+
+OPENALEX_CITATION_AUTHOR_DF = pjoin(PROCESSED_LARGE_DATA_DIR, 'openalex_citation_author_df.csv')
+
+OPENALEX_CITATION_CONCEPT_DF = pjoin(PROCESSED_LARGE_DATA_DIR, 'openalex_citation_concept_df.csv')
+
+OPENALEX_CITATION_PAPER_DF = pjoin(PROCESSED_DATA_DIR, 'openalex_citation_paper_df.csv')
+
+OPENALEX_REFERENCE_PAPER_DF = pjoin(PROCESSED_DATA_DIR, 'openalex_reference_paper_df.csv')
+
+OPENALEX_REFERENCE_AUTHOR_DF = pjoin(PROCESSED_LARGE_DATA_DIR, 'openalex_reference_author_df.csv')
+
+OPENALEX_REFERENCE_CONCEPT_DF = pjoin(PROCESSED_LARGE_DATA_DIR, 'openalex_reference_concept_df.csv')
+
+OPENALEX_REFERENCE_PAPER_DF_UNIQUE = pjoin(PROCESSED_DATA_DIR, 'openalex_reference_paper_df_unique.csv')
+
+OPENALEX_REFERENCE_AUTHOR_DF_UNIQUE = pjoin(PROCESSED_DATA_DIR, 'openalex_reference_author_df_unique.csv')
+
+OPENALEX_REFERENCE_CONCEPT_DF_UNIQUE = pjoin(PROCESSED_DATA_DIR, 'openalex_reference_concept_df_unique.csv')
+
+OPENALEX_REFERENCE_ERROR_DF = pjoin(PROCESSED_DATA_DIR, 'openalex_reference_error_df.csv')
+
+IEEE_PAPER_DF = pjoin(PROCESSED_DATA_DIR, 'ieee_paper_df.csv')
+
+# IEEE_REFERENCE_DF = pjoin(PROCESSED_DATA_DIR, 'ieee_reference_df.csv')
+
+MERGED_AUTHOR_DF = pjoin(PROCESSED_DATA_DIR, 'merged_author_df.csv')
+
+GSCHOLAR_DATA = pjoin(PROCESSED_DATA_DIR, 'gscholar_data.csv')
+
+
+###############################################################################
+# HT_CLASS Data
+###############################################################################
+
+MERGED_CNTRY_PREDICTED = pjoin(HT_CLASS_DATA_DIR, 'merged_country_predicted.csv')
+MERGED_AFF_TYPE_PREDICTED = pjoin(
+    HT_CLASS_DATA_DIR, 
+    'merged_aff_type_predicted.csv'
+)
+
+HT_CLEANED_AUTHOR_DF = pjoin(HT_CLASS_DATA_DIR, 'ht_cleaned_author_df.csv')
+
+HT_CLEANED_PAPER_DF = pjoin(HT_CLASS_DATA_DIR, 'ht_cleaned_paper_df.csv')
+
+###############################################################################
+# Plots Data
+###############################################################################
+
+AUTHOR_CHORD_DATA_DIR = pjoin(PLOTS_DATA_DIR, "author_cord")
+COOCCURRANCE_DATA_DIR = pjoin(PLOTS_DATA_DIR, "co_occurrance")
+SANKY_DATA_DIR = pjoin(PLOTS_DATA_DIR, 'sankey')
+
+# author chord diagram
+AUTHOR_CHORD_DF = pjoin(AUTHOR_CHORD_DATA_DIR, 'author_chord_df.csv')
+TS_AUTHOR_CHORD_DF = pjoin(AUTHOR_CHORD_DATA_DIR, 'ts_author_chord_df.csv')
+
+# ieeevis concept cooccurance chord diagram
+AGGREGATED_COOCCURANCE_DF = pjoin(COOCCURRANCE_DATA_DIR, 'aggregated_cooccurance_df.csv')
+TS_AGGREGATED_COOCCURANCE_DF = pjoin(COOCCURRANCE_DATA_DIR, 'ts_aggregated_cooccurance_df.csv')
+
+TOP_CONCEPTS_TRENDS_DF = pjoin(PLOTS_DATA_DIR, 'top_concepts_trends_df.csv')
+
+# sankey diagram for citation flow based on concepts
+SANKEY_AGGREGATED_DF = pjoin(SANKY_DATA_DIR, 'sankey_aggregated_df.csv')
+SANKEY_TS_DF = pjoin(SANKY_DATA_DIR, 'sankey_ts_df.csv')
+
+###############################################################################
+# Workflows
+###############################################################################
+
+rule all:
+    input:
+        TITLES_2021,
+        DOIS_2021,
+        VISPUBDATA_PLUS,
+        VISPD_PLUS_GOOD_PAPERS,
+        VISPD_OPENALEX_MATCH_1,
+        TITEL_QUERY_EMPTY_DOI_QUERY_404_1,
+        TITLE_QUERY_404_1,
+        TITEL_QUERY_EMPTY_DOI_QUERY_404_2,
+        TITLE_QUERY_404_2,
+        DOI_QUERY_404_2,
+        PAPERS_TO_STUDY,
+        OPENALEX_PAPER_DF,
+        OPENALEX_AUTHOR_DF,
+        OPENALEX_CONCEPT_DF,
+        OPENALEX_REFERENCE_DF,
+        TITEL_QUERY_EMPTY_DOI_QUERY_404_DFS, 
+        TITLE_QUERY_404_DFS, 
+        DOI_QUERY_404_DFS,
+        OPENALEX_CITATION_AUTHOR_DF,
+        OPENALEX_CITATION_CONCEPT_DF,
+        OPENALEX_CITATION_PAPER_DF,
+        IEEE_PAPER_DF,
+        IEEE_AUTHOR_DF, 
+        IEEE_SCRAPING_PROBLEM_DOIS,
+        MERGED_AUTHOR_DF,
+        OPENALEX_REFERENCE_PAPER_DF, 
+        OPENALEX_REFERENCE_AUTHOR_DF, 
+        OPENALEX_REFERENCE_CONCEPT_DF,
+        OPENALEX_REFERENCE_PAPER_DF_UNIQUE, 
+        OPENALEX_REFERENCE_AUTHOR_DF_UNIQUE, 
+        OPENALEX_REFERENCE_CONCEPT_DF_UNIQUE,
+        GSCHOLAR_DATA,
+        AWARD_PAPER_DF,
+        WOS_ID,
+        AUTHOR_CHORD_DF, 
+        TS_AUTHOR_CHORD_DF,
+        AGGREGATED_COOCCURANCE_DF, 
+        TS_AGGREGATED_COOCCURANCE_DF,
+        TOP_CONCEPTS_TRENDS_DF,
+        SANKEY_AGGREGATED_DF, 
+        SANKEY_TS_DF,
+        MERGED_CNTRY_PREDICTED,
+        MERGED_AFF_TYPE_PREDICTED,
+        HT_CLEANED_AUTHOR_DF,
+        HT_CLEANED_PAPER_DF,
+
+rule get_titles_2021:
+    output: TITLES_2021
+    priority: 99
+    shell: "python scripts/get_titles_2021.py {output}"
+
+rule get_dois_2021:
+    input: TITLES_2021, VISPUBDATA
+    output: DOIS_2021, VISPUBDATA_PLUS
+    priority: 90
+    shell: "python scripts/get_dois_2021.py {input} {output}"
+
+rule get_vispd_plus_good_papers:
+    input: VISPUBDATA_PLUS
+    output: VISPD_PLUS_GOOD_PAPERS
+    priority: 80
+    shell: "python scripts/get_vispd_plus_good_papers.py {input} {output}"
+
+rule get_vispd_openalex_match_1:
+    input: VISPD_PLUS_GOOD_PAPERS, VISPUBDATA_PLUS
+    output: VISPD_OPENALEX_MATCH_1, TITEL_QUERY_EMPTY_DOI_QUERY_404_1, TITLE_QUERY_404_1,
+    priority: 70
+    shell: "python scripts/get_vispd_openalex_match_1.py {input} {output}"
+
+rule get_vispd_openalex_match_2:
+    input: VISPD_PLUS_GOOD_PAPERS, VISPUBDATA_PLUS
+    output: VISPD_OPENALEX_MATCH_2, TITEL_QUERY_EMPTY_DOI_QUERY_404_2, TITLE_QUERY_404_2, DOI_QUERY_404_2,
+    priority: 60
+    shell: "python scripts/get_vispd_openalex_match_2.py {input} {output}"
+
+rule get_papers_to_study:
+    input: VISPD_PLUS_GOOD_PAPERS
+    output: PAPERS_TO_STUDY
+    priority: 50
+    shell: "python scripts/get_papers_to_study.py {input} {output}"
+
+rule get_openalex_dfs:
+    input: PAPERS_TO_STUDY, VISPUBDATA_PLUS
+    output: OPENALEX_PAPER_DF, OPENALEX_AUTHOR_DF, OPENALEX_CONCEPT_DF, OPENALEX_REFERENCE_DF, TITEL_QUERY_EMPTY_DOI_QUERY_404_DFS, TITLE_QUERY_404_DFS, DOI_QUERY_404_DFS,
+    priority: 40
+    shell: "python scripts/get_openalex_dfs.py {input} {output}"
+
+rule get_openalex_citation_dfs:
+    input: OPENALEX_PAPER_DF
+    output: OPENALEX_CITATION_AUTHOR_DF, OPENALEX_CITATION_CONCEPT_DF, OPENALEX_CITATION_PAPER_DF
+    priority: 30
+    shell: "python scripts/get_openalex_citation_dfs.py {input} {output}"
+
+rule get_ieee_author_and_paper_title:
+    input: PAPERS_TO_STUDY, VISPUBDATA_PLUS
+    output: IEEE_AUTHOR_DF, IEEE_PAPER_DF, IEEE_SCRAPING_PROBLEM_DOIS
+    priority: 20
+    shell: "python scripts/get_ieee_author_and_paper_title.py {input} {output}"
+
+rule get_merged_author_df:
+    input: IEEE_AUTHOR_DF, OPENALEX_AUTHOR_DF, PAPERS_TO_STUDY, VISPUBDATA,
+    output: MERGED_AUTHOR_DF, 
+    priority: 19
+    shell: "python scripts/get_merged_author_df.py {input} {output}"
+
+rule get_openalex_reference_dfs:
+    input: OPENALEX_REFERENCE_DF
+    output: OPENALEX_REFERENCE_PAPER_DF_UNIQUE, OPENALEX_REFERENCE_AUTHOR_DF_UNIQUE, OPENALEX_REFERENCE_CONCEPT_DF_UNIQUE, OPENALEX_REFERENCE_PAPER_DF, OPENALEX_REFERENCE_AUTHOR_DF, OPENALEX_REFERENCE_CONCEPT_DF, OPENALEX_REFERENCE_ERROR_DF, 
+    priority: 18
+    shell: "python scripts/get_openalex_reference_dfs.py {input} {output}"
+
+rule scrape_award_papers:
+    input: IEEE_AUTHOR_DF
+    output: AWARD_PAPER_DF
+    priority: 10
+    shell: "python scripts/scrape_award_papers.py {input} {output}"
+
+rule get_gscholar_data:
+    input: PAPERS_TO_STUDY, IEEE_PAPER_DF,
+    output: GSCHOLAR_DATA,
+    priority: 9
+    shell: "python scripts/get_gscholar_data.py {input} {output}"
+
+rule get_wos_id:
+    input: VISPD_PLUS_GOOD_PAPERS
+    output: WOS_ID
+    priority: 7
+    shell: "python scripts/get_wos_id.py {input} {output}"
+
+rule CLASS_country:
+    input:
+        OPENALEX_CITATION_AUTHOR_DF,
+        OPENALEX_REFERENCE_AUTHOR_DF_UNIQUE,
+        OPENALEX_AUTHOR_DF,
+        MERGED_AUTHOR_DF
+    output: MERGED_CNTRY_PREDICTED
+    shell: "python scripts/CLASS_country.py {input} {output}"
+
+rule CLASS_type:
+    input:
+        OPENALEX_CITATION_AUTHOR_DF,
+        OPENALEX_REFERENCE_AUTHOR_DF_UNIQUE,
+        OPENALEX_AUTHOR_DF,
+        MERGED_AUTHOR_DF
+    output: MERGED_AFF_TYPE_PREDICTED
+    shell: "python scripts/CLASS_type.py {input} {output}"
+
+rule get_HT_cleaned_author_df:
+    input:
+        MERGED_CNTRY_PREDICTED,
+        MERGED_AFF_TYPE_PREDICTED
+    output: HT_CLEANED_AUTHOR_DF
+    shell: "python scripts/get_HT_cleaned_author_df.py {input} {output}"
+
+rule get_ht_cleaned_paper_df:
+    input: 
+        PAPERS_TO_STUDY, 
+        VISPUBDATA_PLUS, 
+        OPENALEX_PAPER_DF, 
+        HT_CLEANED_AUTHOR_DF,
+        GSCHOLAR_DATA,
+        AWARD_PAPER_DF,
+    output: HT_CLEANED_PAPER_DF,
+    shell: "python scripts/get_HT_cleaned_paper_df.py {input} {output}"
+
+rule plot_data_author_chord_diagram_data:
+    input: HT_CLEANED_AUTHOR_DF
+    output: AUTHOR_CHORD_DF, TS_AUTHOR_CHORD_DF
+    shell: "python scripts/plot_data_author_chord_diagram_data.py {input} {output}"
+
+rule plot_vis_concepts_cooccurance_data:
+    input: OPENALEX_CONCEPT_DF
+    output: AGGREGATED_COOCCURANCE_DF, TS_AGGREGATED_COOCCURANCE_DF
+    shell: "python scripts/plot_vis_concepts_cooccurance_data.py {input} {output}"
+
+rule plot_top_concepts_trends:
+    input: OPENALEX_PAPER_DF, OPENALEX_CONCEPT_DF
+    output: TOP_CONCEPTS_TRENDS_DF
+    shell: "python scripts/plot_top_concepts_trends.py {input} {output}"
+
+rule plot_sankey_data:
+    input: 
+        VISPUBDATA_PLUS,
+        OPENALEX_CONCEPT_DF,
+        OPENALEX_REFERENCE_CONCEPT_DF,
+        OPENALEX_CITATION_CONCEPT_DF,
+    output: SANKEY_AGGREGATED_DF, SANKEY_TS_DF,
+    shell: "python scripts/plot_sankey_data.py {input} {output}"

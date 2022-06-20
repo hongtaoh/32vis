@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                           count    min threads    max threads
+--------------------------  -------  -------------  -------------
+all                               1              1              1
+get_vispd_openalex_match_1        1              1              1
+total                             2              1              1
+
+Select jobs to execute...
+
+[Tue Jan 18 14:18:05 2022]
+rule get_vispd_openalex_match_1:
+    input: ../data/processed/vispd_good_papers.txt, ../data/raw/vispubdata.csv
+    output: ../data/interim/vispd_openalex_match_1.csv, ../data/interim/no_result_bad_doi_openalex_1.txt, ../data/interim/no_matching_doi_openalex_1.txt
+    jobid: 3
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

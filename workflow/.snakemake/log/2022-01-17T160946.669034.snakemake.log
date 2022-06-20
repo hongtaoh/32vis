@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count    min threads    max threads
+------------------------  -------  -------------  -------------
+all                             1              1              1
+get_vispd_good_dois             1              1              1
+get_vispd_openalex_match        1              1              1
+total                           3              1              1
+
+Select jobs to execute...
+
+[Mon Jan 17 16:09:47 2022]
+rule get_vispd_good_dois:
+    input: ../data/raw/vispubdata.csv
+    output: ../data/processed/vispd_good_dois.txt
+    jobid: 1
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Mon Jan 17 16:09:50 2022]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Mon Jan 17 16:09:50 2022]
+rule get_vispd_openalex_match:
+    input: ../data/processed/vispd_good_dois.txt, ../data/raw/vispubdata.csv
+    output: ../data/processed/vispd_openalex_match.csv, ../data/processed/good_doi_openalex.txt, ../data/processed/no_result_doi_openalex.txt, ../data/processed/no_matching_doi_openalex.txt
+    jobid: 3
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Mon Jan 17 16:23:51 2022]
+Finished job 3.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Mon Jan 17 16:23:51 2022]
+localrule all:
+    input: ../data/processed/vispd_good_dois.txt, ../data/processed/openalex_papers.csv, ../data/processed/vispd_openalex_match.csv, ../data/processed/good_doi_openalex.txt, ../data/processed/no_result_doi_openalex.txt, ../data/processed/no_matching_doi_openalex.txt
+    jobid: 0
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Mon Jan 17 16:23:51 2022]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /Users/hongtaoh/Desktop/github/31vis/workflow/.snakemake/log/2022-01-17T160946.669034.snakemake.log
