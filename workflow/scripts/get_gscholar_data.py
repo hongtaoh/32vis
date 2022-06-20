@@ -64,23 +64,12 @@ def get_gscholar_data_by_title(doi, doi_index):
 	# IF DOI IN TO_QUERY_BY_DOI, USE DOI QUERY
 	if doi in to_query_by_doi:
 		driver.get(query_string + doi_to_query + '&btnG=')
-		gs_paper_e = wait.until(EC.presence_of_element_located((
-			By.CSS_SELECTOR, 'h3.gs_rt > a')))
 	# IF NOT, USE TITLE QUERY
 	else:
 		driver.get(query_string + title_to_query + '&btnG=')
-		try:
-			gs_paper_e = wait.until(EC.presence_of_element_located((
-				By.CSS_SELECTOR, 'h3.gs_rt > a')))
-		# IF TITLE QUERY RESULT IS A [CITATION] PAPER, USE DOI QUERY INSTEAD
-		except (NoSuchElementException, TimeoutException):
-			# for example, 10.1109/INFVIS.2001.963279 will cause errors
-			print(f'{doi_index} : {doi} has something wrong with title query. Its title is {title}. Trying doi query now')
-			driver.get(query_string + doi_to_query + '&btnG=')
-			gs_paper_e = wait.until(EC.presence_of_element_located((
-				By.CSS_SELECTOR, 'h3.gs_rt > a')))
+	gs_paper_e = wait.until(EC.presence_of_element_located((
+			By.CSS_SELECTOR, 'h3.gs_rt')))
 	gs_paper_title = gs_paper_e.text
-	gs_paper_link = gs_paper_e.get_attribute('href')
 	gs_citation_e = wait.until(
 		EC.presence_of_element_located((By.XPATH, '//div[@class="gs_fl"]//child::a[3]'
 	)))
@@ -89,13 +78,12 @@ def get_gscholar_data_by_title(doi, doi_index):
 	if citation_count_string == "Related articles":
 		gs_citation_count = 0
 	else:
-		gs_citation_count = int(re.findall(r'\d+', citation_count_string)[0])	
+		gs_citation_count = int(re.findall(r'\d+', citation_count_string)[0])
 	gscholar_dict = {
 		'Year': doi_year_dict[doi],
 		'DOI': doi,
 		'IEEE Title': title,
 		'Title on Google Scholar': gs_paper_title,
-		'Paper Link': gs_paper_link,
 		'Citation Link': citation_link,
 		'Citation Counts on Google Scholar': gs_citation_count,
 	}
@@ -104,21 +92,7 @@ def get_gscholar_data_by_title(doi, doi_index):
 def main(DOIS):
 	for doi in DOIS:
 		doi_index = DOIS.index(doi) + 1
-		if doi != '10.1109/VISUAL.1991.175773':
-			get_gscholar_data_by_title(doi, doi_index)
-		else:
-			'''as of June 19 2022, this paper is a [citation] paper
-			'''
-			gscholar_dict = {
-				'Year': doi_year_dict[doi],
-				'DOI': doi,
-				'IEEE Title': doi_title_dict[doi],
-				'Title on Google Scholar': 'A tool for visualizing the topology of three-dimensional vector fields',
-				'Paper Link': np.NaN,
-				'Citation Link': 'https://scholar.google.com/scholar?cites=17437623302222250489&as_sdt=5,50&sciodt=0,50&hl=en',
-				'Citation Counts on Google Scholar': 371,
-			}
-			gscholar_dict_list.append(gscholar_dict)			
+		get_gscholar_data_by_title(doi, doi_index)
 		print(f'{doi_index} is done')
 		time.sleep(0.2+random.uniform(0, 0.2)) 
 	driver.close()
@@ -134,12 +108,8 @@ if __name__ == '__main__':
 	gscholar_dict_list = []
 	title_recode_dict = {
 	# If I don't change the title for querying, the results are wrong:
-		'10.1109/INFVIS.2001.963279': 'Animated exploration of graphs with radial layout',
-		'10.1109/INFVIS.2001.963295': 'Graphic Data Display for Cardiovascular System Case Study',
-		'10.1109/VIS.1999.10000': 'Progressive compression of arbitrary triangular meshes',
 		# This is the real title on PDF:
 		'10.1109/VISUAL.1999.809889': 'Enabling classification and shading for 3 D texture mapping based volume rendering using OpenGL and extensions',
-
 	}
 	to_query_by_doi = [
 	# If I query by title, the results are false:
@@ -155,7 +125,9 @@ if __name__ == '__main__':
 		'10.1109/VISUAL.2000.885719',
 		'10.1109/TVCG.2021.3114849',
 		'10.1109/VISUAL.1991.175771',
-		'10.1109/TVCG.2014.2346442',
+		'10.1109/INFVIS.2001.963279',
+		'10.1109/INFVIS.2001.963295',
+		'10.1109/VIS.1999.10000',
 	]
 	main(DOIS)
 	df = pd.DataFrame(gscholar_dict_list)
