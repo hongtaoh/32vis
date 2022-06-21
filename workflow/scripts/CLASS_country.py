@@ -100,13 +100,13 @@ def clean_texts(df, col_name):
 def get_model(X_train, X_test, y_train, y_test):
 	"""get vectorizer and classifier"""
 	# Convert words to vector of numbers 
-	vectorizer = CountVectorizer(stop_words='english', min_df = 2)
+	vectorizer = CountVectorizer(stop_words='english', min_df = 5)
 	vectorizer.fit(X_train)
 
 	X_train = vectorizer.transform(X_train)
 	X_test  = vectorizer.transform(X_test)
 
-	classifier = LogisticRegression(max_iter=400)
+	classifier = LogisticRegression(max_iter=600)
 	print('training model now...')
 	classifier.fit(X_train, y_train)
 	print('model training completed!')
@@ -205,8 +205,3 @@ if __name__ == '__main__':
 	merged_cntry_predicted.rename(columns = col_renamer).to_csv(
 		MERGED_CNTRY_PREDICTED, index = False
 	)
-
-
-
-
-
