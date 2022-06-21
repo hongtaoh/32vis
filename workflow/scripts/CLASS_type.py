@@ -97,7 +97,6 @@ def clean_texts(df, col_name):
 	affs = [re.sub(r'[^A-Za-z]+', ' ', x) for x in affs]
 	return affs
 
-
 def get_model(X_train, X_test, y_train, y_test):
 	"""get vectorizer and classifier"""
 	# Convert words to vector of numbers 
