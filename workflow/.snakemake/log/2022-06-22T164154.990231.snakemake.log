@@ -1,0 +1,12 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules CLASS_country and CLASS_type are ambiguous for the file ../data/ht_class/type_classification_report.txt.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	CLASS_country: 
+	CLASS_type: 
+Expected input files:
+	CLASS_country: ../data/processed/large/openalex_citation_author_df.csv ../data/processed/openalex_reference_author_df_unique.csv ../data/interim/openalex_author_df.csv ../data/processed/merged_author_df.csv
+	CLASS_type: ../data/processed/large/openalex_citation_author_df.csv ../data/processed/openalex_reference_author_df_unique.csv ../data/interim/openalex_author_df.csv ../data/processed/merged_author_df.csvExpected output files:
+	CLASS_country: ../data/ht_class/merged_country_predicted.csv ../data/ht_class/type_classification_report.txt
+	CLASS_type: ../data/ht_class/merged_aff_type_predicted.csv ../data/ht_class/type_classification_report.txt

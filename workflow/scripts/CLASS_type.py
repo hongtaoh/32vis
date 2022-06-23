@@ -6,24 +6,18 @@ import sys
 import pandas as pd
 import numpy as np
 import re
-from io import StringIO
-from html.parser import HTMLParser
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import precision_recall_fscore_support as multi_score
-
-CIT_AUTHOR = sys.argv[1]
-REF_AUTHOR = sys.argv[2]
-# openalex author df for VIS papers:
-OA_AUTHOR = sys.argv[3]
-MERGED_AUTHOR = sys.argv[4]
-MERGED_AFF_TYPE_PREDICTED = sys.argv[5]
+from bs4 import BeautifulSoup
 
 def get_simple_df(fname):
 	"""
 		- remove nan, 
-		- get only two target columns, i.e., raw string and country code
+		- get only two target columns, i.e., raw string and aff type
 		- drop duplicates
 	"""
 	raw_string = 'Raw Affiliation String'
@@ -36,94 +30,122 @@ def get_simple_df(fname):
 
 def get_df(cit_author, ref_author, oa_author):
 	"""concatenate, drop_duplicates, reset index, rename columns,
-		factorize label_raw
+		factorize label_str
 
 	Returns:
-		the df used for model training and testing. It contains three columns:
+		the df used for model training and testing. It contains five columns:
 			1. aff, which is pre-processed strings of affiliations
-			2. label_raw, which is country codes in strings,
+			2. label_str, which is country codes in strings,
 			3. label: which is factorized version of country codes
+			4. binary_label_str
+			5. binary_label
 	"""
 
 	df = pd.concat(
 		[oa_author, ref_author, cit_author], ignore_index = True
 		).drop_duplicates().reset_index(drop=True)
-	df.columns = ['aff', 'label_raw']
-	df = df.assign(label = pd.factorize(df['label_raw'])[0])
+	df.columns = ['aff', 'label_str']
+	df = df.assign(label = pd.factorize(df['label_str'])[0])
+	df = df.assign(binary_label_str = np.where(
+		df.label_str == 'education', 'education', 'non-education'))
+	df = df.assign(binary_label = pd.factorize(df['binary_label_str'])[0])
 	return df 
 
 def get_dicts(df):
-	"""get two dicts, one for cntry to id, and the other for id to cntry
+	"""get four dicts; id <--> type, for both binary and multiclass
 	"""
-	label_num_df = df[
-		['label_raw', 'label']].drop_duplicates().sort_values(by='label')
-	countries = label_num_df['label_raw'].tolist()
-	ids = label_num_df['label'].tolist()
-	cntry_to_id = dict(zip(countries, ids))
-	id_to_cntry = dict(zip(ids, countries))
-	return cntry_to_id, id_to_cntry
+	multi_type_to_id = dict(zip(df.label_str, df.label))
+	id_to_multi_type = dict(zip(df.label, df.label_str))
+	binary_type_to_id = dict(zip(df.binary_label_str, df.binary_label))
+	id_to_binary_type = dict(zip(df.binary_label, df.binary_label_str))
+	return multi_type_to_id, id_to_multi_type, binary_type_to_id, id_to_binary_type
 
-# scrip html tags and entities in titles
-# source: https://stackoverflow.com/a/925630
-class MLStripper(HTMLParser):
-	def __init__(self):
-		super().__init__()
-		self.reset()
-		self.strict = False
-		self.convert_charrefs= True
-		self.text = StringIO()
-	def handle_data(self, d):
-		self.text.write(d)
-	def get_data(self):
-		return self.text.getvalue()
+def clean_text(text):
+    """
+    Takes a string and returns a string
+    """
+    # remove html tags, lowercase, remove nonsense, remove non-letter
+    aff = BeautifulSoup(text, "lxml").text 
+    aff = aff.lower()
+    aff = re.sub(r'xa0|#n#‡#n#|#tab#|#r#|\[|\]', "", aff)
+    aff = re.sub(r'[^a-z]+', ' ', aff)
+    return aff
 
-def strip_tags(html):
-	s = MLStripper()
-	s.feed(html)
-	return s.get_data()
-
-
-def clean_texts(df, col_name):
-	"""
+def logist_regression(df, LABEL):
+	'''
+	Input: 
+		df: df
+		LABEL: 'label' if multiclass and 'binary_label' if binary
 	Returns:
-		affs, which is cleaned version ready for trainig and testing.
-			type: list of (cleaned) strings
-	"""
-	# lowercase, remove html tags, remove nonsense, remove non-letter
-	affs = df[col_name].tolist()
-	affs = [x.lower() for x in affs]
-	affs = [strip_tags(x) for x in affs]
-	affs = [re.sub(r'xa0|#n#‡#n#|#tab#|#r#|\[|\]', "", x) for x in affs]
-	affs = [re.sub(r'[^A-Za-z]+', ' ', x) for x in affs]
-	return affs
+		logreg: logistic regression classifier (model)
 
-def get_model(X_train, X_test, y_train, y_test):
-	"""get vectorizer and classifier"""
-	# Convert words to vector of numbers 
-	vectorizer = CountVectorizer(stop_words='english', min_df = 5)
-	# vectorizer = CountVectorizer()
-	vectorizer.fit(X_train)
+	'''
+	X = df.aff
+	y = df[LABEL]
+	X_train, X_test, y_train, y_test = train_test_split(
+		X, y, test_size=0.2, random_state = 42)
+	logreg = Pipeline([('vect', CountVectorizer(stop_words='english', min_df = 5)),
+				('clf', LogisticRegression(max_iter=600)),
+			   ])
+	print('model training now...')
+	logreg.fit(X_train, y_train)
 
-	X_train = vectorizer.transform(X_train)
-	X_test  = vectorizer.transform(X_test)
+	y_pred = logreg.predict(X_test)
 
-	classifier = LogisticRegression(max_iter=600)
-	print('training model now...')
-	classifier.fit(X_train, y_train)
+	target_names = list(set(df.label_str)) if LABEL == 'label' else list(set(df.binary_label_str))
+	logreg_type = 'multiclass classification' if LABEL == 'label' else 'binary classification'
+	
+	f = open(TYPE_CLASSIFICATION_REPORT,'a')
+	f.write('The following is the result for aff type' + ' : ' + logreg_type + '\n')
+	f.write('accuracy %s' % accuracy_score(y_pred, y_test))
+	f.write('\n')
+	f.write(classification_report(y_test, y_pred, target_names=target_names))
+	f.write('\n')
+	f.write('\n')
 
-	return vectorizer, X_train, X_test, classifier 
+	return logreg
 
-def get_processed_merged_author(merged, vectorizer, classifier, id_to_cntry):
-	affsP = clean_texts(merged, 'IEEE Author Affiliation Filled')
-	if len(affsP) == merged.shape[0]:
-		print('length of affsP is equal to that of merged shape[0]')
-	X_to_predict = vectorizer.transform(affsP)
-	predicted_results = classifier.predict(X_to_predict)
-	results = [id_to_cntry[x] for x in predicted_results]
-	merged['aff_type_results'] = results
-	return merged 
+def get_processed_merged_author(DF, LOGREG_MULTI, LOGREG_BINARY):
+	'''
+	Input: 
+		- DF: merged
+		- LOGREG_MULTI
+		- LOGREG_BINARY
+	Returns:
+		- DF with binary and multiclass classification results
+	'''
+	# clean text for affs to be predicted
+	DF['IEEE Author Affiliation Filled'] = DF[
+		'IEEE Author Affiliation Filled'].apply(clean_text)
+	pred_binary = LOGREG_BINARY.predict(DF['IEEE Author Affiliation Filled'])
+	pred_binary_type = [id_to_binary_type[x] for x in pred_binary]
+	pred_multi = LOGREG_MULTI.predict(DF['IEEE Author Affiliation Filled'])
+	pred_multi_type = [id_to_multi_type[x] for x in pred_multi]
+	DF['aff_type_results_binary'] = pred_binary_type
+	DF['aff_type_results_multiclass'] = pred_multi_type
+	# use type by hand if it exists one
+	DF = DF.assign(aff_type_results_binary_updated = 
+	    np.where(DF['Binary Institution Type By Hand'].notnull(), 
+	         DF['Binary Institution Type By Hand'],
+	         DF['aff_type_results_binary']
+	        ))
+	# use type by hand if it exists one
+	DF = DF.assign(aff_type_results_multiclass_updated = 
+	    np.where(DF['First Institution Type By Hand'].notnull(), 
+	         DF['First Institution Type By Hand'],
+	         DF['aff_type_results_multiclass']
+	        ))
+	return DF
 
 if __name__ == '__main__':
+
+	CIT_AUTHOR = sys.argv[1]
+	REF_AUTHOR = sys.argv[2]
+	# openalex author df for VIS papers:
+	OA_AUTHOR = sys.argv[3]
+	MERGED_AUTHOR = sys.argv[4]
+	MERGED_AFF_TYPE_PREDICTED = sys.argv[5]
+	TYPE_CLASSIFICATION_REPORT = sys.argv[6]
 
 	# load datasets:
 	cit_author = get_simple_df(CIT_AUTHOR)
@@ -134,49 +156,17 @@ if __name__ == '__main__':
 	# get df for model trainig and testing
 	df = get_df(cit_author, ref_author, oa_author)
 
-	# get two dicts
-	cntry_to_id, id_to_cntry = get_dicts(df)
+	# clean affiliation texts 
+	df['aff'] = df['aff'].apply(clean_text)
 
-	# get affs and labels 
-	affs = clean_texts(df, 'aff')
+	# get dicts
+	multi_type_to_id, id_to_multi_type, binary_type_to_id, id_to_binary_type = get_dicts(df)
 
-	# get labels, a numpy array of numbers representing country codes
-	labels = np.array(df['label'])
+	# get logreg
+	logreg_multi = logist_regression(df, 'label')
+	logreg_binary = logist_regression(df, 'binary_label')
 
-	# split
-	X_train, X_test, y_train, y_test = train_test_split(
-		affs, labels, test_size = 0.20, random_state = 42
-	)
-
-	# classifier
-	vectorizer, X_train, X_test, classifier = get_model(
-		X_train, X_test, y_train, y_test)
-
-	# report accurcy score 
-	print("aff type classifier:")
-
-	score = classifier.score(X_test, y_test)
-	print("Test set accuracy:", score)
-
-	predictions = classifier.predict(X_test)
-
-	score = classifier.score(X_train, y_train)
-	print("Train set accuracy:", score)
-
-	precision, recall, fscore, support = multi_score(
-		y_test, 
-		predictions, 
-		average='weighted', 
-		labels=np.unique(predictions)
-	)
-
-	print('precision: {}'.format(precision))
-	print('recall: {}'.format(recall))
-	print('fscore: {}'.format(fscore))
-	print('support: {}'.format(support))
-
-	merged_processed = get_processed_merged_author(
-		merged, vectorizer, classifier, id_to_cntry)
+	merged_processed = get_processed_merged_author(merged, logreg_multi, logreg_binary)
 
 	# export merged_processed
 	cols_to_keep = [
@@ -188,7 +178,8 @@ if __name__ == '__main__':
 		'IEEE Author Name',
 		'OpenAlex Author ID',
 		'IEEE Author Affiliation Filled',
-		'aff_type_results', 
+		'aff_type_results_multiclass_updated', 
+		'aff_type_results_binary_updated', 
 		]
 	col_renamer = {
 		'Year':'Year',
@@ -199,14 +190,10 @@ if __name__ == '__main__':
 		'IEEE Author Name':'Author Name',
 		'OpenAlex Author ID':'OpenAlex Author ID',
 		'IEEE Author Affiliation Filled':'Affiliation Name',
-		'aff_type_results':'Affiliation Type', 
+		'aff_type_results_multiclass_updated':'Multiclass Affiliation Type', 
+		'aff_type_results_binary_updated':'Binary Affiliation Type',
 		}
 	merged_aff_type_predicted = merged_processed[cols_to_keep]
 	merged_aff_type_predicted.rename(columns = col_renamer).to_csv(
 		MERGED_AFF_TYPE_PREDICTED, index=False
 	)
-
-
-
-
-

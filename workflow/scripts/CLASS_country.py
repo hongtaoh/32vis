@@ -1,4 +1,4 @@
-"""build classification model for country
+"""build classification model for country code
 
 """
 
@@ -6,124 +6,124 @@ import sys
 import pandas as pd
 import numpy as np
 import re
-from io import StringIO
-from html.parser import HTMLParser
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import precision_recall_fscore_support as multi_score
-
-CIT_AUTHOR = sys.argv[1]
-REF_AUTHOR = sys.argv[2]
-# openalex author df for VIS papers:
-OA_AUTHOR = sys.argv[3]
-MERGED_AUTHOR = sys.argv[4]
-MERGED_CNTRY_PREDICTED = sys.argv[5]
+from collections import Counter
+from bs4 import BeautifulSoup
 
 def get_simple_df(fname):
 	"""
 		- remove nan, 
-		- get only two target columns, i.e., raw string and country code
+		- get only two target columns, i.e., raw string and aff type
 		- drop duplicates
 	"""
 	raw_string = 'Raw Affiliation String'
-	cntry_code = 'First Institution Country Code'
+	aff_type = 'First Institution Country Code'
 	df = pd.read_csv(fname)
-	df = df[(df[raw_string].notnull()) & (df[cntry_code].notnull())]
-	df = df[[raw_string, cntry_code]]
+	df = df[(df[raw_string].notnull()) & (df[aff_type].notnull())]
+	df = df[[raw_string, aff_type]]
 	df = df.drop_duplicates()
 	return df
 
 def get_df(cit_author, ref_author, oa_author):
 	"""concatenate, drop_duplicates, reset index, rename columns,
-		factorize label_raw
+		factorize label_str
 
 	Returns:
 		the df used for model training and testing. It contains three columns:
 			1. aff, which is pre-processed strings of affiliations
-			2. label_raw, which is country codes in strings,
+			2. label_str, which is country codes in strings,
 			3. label: which is factorized version of country codes
 	"""
 
 	df = pd.concat(
 		[oa_author, ref_author, cit_author], ignore_index = True
 		).drop_duplicates().reset_index(drop=True)
-	df.columns = ['aff', 'label_raw']
-	df = df.assign(label = pd.factorize(df['label_raw'])[0])
+	df.columns = ['aff', 'label_str']
+	df = df.assign(label = pd.factorize(df['label_str'])[0])
 	return df 
 
 def get_dicts(df):
-	"""get two dicts, one for cntry to id, and the other for id to cntry
+	"""get two dicts; id <--> cntry
 	"""
-	label_num_df = df[
-		['label_raw', 'label']].drop_duplicates().sort_values(by='label')
-	countries = label_num_df['label_raw'].tolist()
-	ids = label_num_df['label'].tolist()
-	cntry_to_id = dict(zip(countries, ids))
-	id_to_cntry = dict(zip(ids, countries))
+	cntry_to_id = dict(zip(df.label_str, df.label))
+	id_to_cntry = dict(zip(df.label, df.label_str))
 	return cntry_to_id, id_to_cntry
 
-# scrip html tags and entities in titles
-# source: https://stackoverflow.com/a/925630
-class MLStripper(HTMLParser):
-	def __init__(self):
-		super().__init__()
-		self.reset()
-		self.strict = False
-		self.convert_charrefs= True
-		self.text = StringIO()
-	def handle_data(self, d):
-		self.text.write(d)
-	def get_data(self):
-		return self.text.getvalue()
+def clean_text(text):
+    """
+    Takes a string and returns a string
+    """
+    # remove html tags, lowercase, remove nonsense, remove non-letter
+    aff = BeautifulSoup(text, "lxml").text 
+    aff = aff.lower()
+    aff = re.sub(r'xa0|#n#‡#n#|#tab#|#r#|\[|\]', "", aff)
+    aff = re.sub(r'[^a-z]+', ' ', aff)
+    return aff
 
-def strip_tags(html):
-	s = MLStripper()
-	s.feed(html)
-	return s.get_data()
-
-
-def clean_texts(df, col_name):
-	"""
+def logist_regression(df):
+	'''
+	Input: 
+		df: df
 	Returns:
-		affs, which is cleaned version ready for trainig and testing.
-			type: list of (cleaned) strings
-	"""
-	# lowercase, remove html tags, remove nonsense, remove non-letter
-	affs = df[col_name].tolist()
-	affs = [x.lower() for x in affs]
-	affs = [strip_tags(x) for x in affs]
-	affs = [re.sub(r'xa0|#n#‡#n#|#tab#|#r#|\[|\]', "", x) for x in affs]
-	affs = [re.sub(r'[^A-Za-z]+', ' ', x) for x in affs]
-	return affs
+		logreg: logistic regression model
+	'''
+	X = df.aff
+	y = df.label
+	X_train, X_test, y_train, y_test = train_test_split(
+		X, y, test_size=0.2, random_state = 42)
+	logreg = Pipeline([('vect', CountVectorizer(stop_words='english', min_df = 5)),
+				('clf', LogisticRegression(max_iter=600)),
+			   ])
+	print('model training now...')
+	logreg.fit(X_train, y_train)
 
-def get_model(X_train, X_test, y_train, y_test):
-	"""get vectorizer and classifier"""
-	# Convert words to vector of numbers 
-	vectorizer = CountVectorizer(stop_words='english', min_df = 5)
-	vectorizer.fit(X_train)
+	y_pred = logreg.predict(X_test)
 
-	X_train = vectorizer.transform(X_train)
-	X_test  = vectorizer.transform(X_test)
+	target_names = list(set([id_to_cntry[x] for x in y_test]))
+	
+	f = open(CNTRY_CLASSIFICATION_REPORT,'a')
+	f.write('The following is the result for affiliation country code classification' + '\n')
+	f.write('accuracy %s' % accuracy_score(y_pred, y_test))
+	# f.write('\n')
+	# f.write(classification_report(y_test, y_pred, target_names=target_names))
 
-	classifier = LogisticRegression(max_iter=600)
-	print('training model now...')
-	classifier.fit(X_train, y_train)
-	print('model training completed!')
+	return logreg
 
-	return vectorizer, X_train, X_test, classifier 
-
-def get_processed_merged_author(merged, vectorizer, classifier, id_to_cntry):
-	affsP = clean_texts(merged, 'IEEE Author Affiliation Filled')
-	if len(affsP) == merged.shape[0]:
-		print('length of affsP is equal to that of merged shape[0]')
-	X_to_predict = vectorizer.transform(affsP)
-	predicted_results = classifier.predict(X_to_predict)
-	results = [id_to_cntry[x] for x in predicted_results]
-	merged['country_code_results'] = results
-	return merged 
+def get_processed_merged_author(DF, LOGREG):
+	'''
+	Input: 
+		- DF: merged
+		- LOGREG
+	Returns:
+		- DF with cntry classification results
+	'''
+	# clean text for affs to be predicted
+	DF['IEEE Author Affiliation Filled'] = DF[
+		'IEEE Author Affiliation Filled'].apply(clean_text)
+	pred = LOGREG.predict(DF['IEEE Author Affiliation Filled'])
+	results = [id_to_cntry[x] for x in pred]
+	DF['country_code_results'] = results
+	DF = DF.assign(country_code_results_updated = 
+	    np.where(DF['First Institution Country Code By Hand'].notnull(), 
+	         DF['First Institution Country Code By Hand'],
+	         DF['country_code_results']
+	        ))
+	return DF
 
 if __name__ == '__main__':
+
+	CIT_AUTHOR = sys.argv[1]
+	REF_AUTHOR = sys.argv[2]
+	# openalex author df for VIS papers:
+	OA_AUTHOR = sys.argv[3]
+	MERGED_AUTHOR = sys.argv[4]
+	MERGED_CNTRY_PREDICTED = sys.argv[5]
+	CNTRY_CLASSIFICATION_REPORT = sys.argv[6]
 
 	# load datasets:
 	cit_author = get_simple_df(CIT_AUTHOR)
@@ -134,49 +134,16 @@ if __name__ == '__main__':
 	# get df for model trainig and testing
 	df = get_df(cit_author, ref_author, oa_author)
 
-	# get two dicts
+	# clean affiliation texts 
+	df['aff'] = df['aff'].apply(clean_text)
+
+	# get dicts
 	cntry_to_id, id_to_cntry = get_dicts(df)
 
-	# get affs and labels 
-	affs = clean_texts(df, 'aff')
+	# get logreg
+	logreg = logist_regression(df)
 
-	# get labels, a numpy array of numbers representing country codes
-	labels = np.array(df['label'])
-
-	# split
-	X_train, X_test, y_train, y_test = train_test_split(
-		affs, labels, test_size = 0.20, random_state = 42
-	)
-
-	# classifier
-	vectorizer, X_train, X_test, classifier  = get_model(
-		X_train, X_test, y_train, y_test)
-
-	# report accurcy score 
-	print("country classifier")
-
-	score = classifier.score(X_test, y_test)
-	print("Test set accuracy:", score)
-
-	predictions = classifier.predict(X_test)
-
-	score = classifier.score(X_train, y_train)
-	print("Train set accuracy:", score)
-
-	precision, recall, fscore, support = multi_score(
-		y_test, 
-		predictions, 
-		average='weighted', 
-		labels=np.unique(predictions)
-	)
-
-	print('precision: {}'.format(precision))
-	print('recall: {}'.format(recall))
-	print('fscore: {}'.format(fscore))
-	print('support: {}'.format(support))
-
-	merged_processed = get_processed_merged_author(
-		merged, vectorizer, classifier, id_to_cntry)
+	merged_processed = get_processed_merged_author(merged, logreg)
 
 	# export merged_processed
 	cols_to_keep = [
@@ -188,7 +155,7 @@ if __name__ == '__main__':
 		'IEEE Author Name',
 		'OpenAlex Author ID',
 		'IEEE Author Affiliation Filled',
-		'country_code_results', 
+		'country_code_results_updated', 
 		]
 	col_renamer = {
 		'Year':'Year',
@@ -199,7 +166,7 @@ if __name__ == '__main__':
 		'IEEE Author Name':'Author Name',
 		'OpenAlex Author ID':'OpenAlex Author ID',
 		'IEEE Author Affiliation Filled':'Affiliation Name',
-		'country_code_results':'Affiliation Country Code', 
+		'country_code_results_updated':'Affiliation Country Code', 
 		}
 	merged_cntry_predicted = merged_processed[cols_to_keep]
 	merged_cntry_predicted.rename(columns = col_renamer).to_csv(

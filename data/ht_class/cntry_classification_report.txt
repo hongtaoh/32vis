@@ -1,0 +1,2 @@
+The following is the result for affiliation country code classification
+accuracy 0.9356327734324913

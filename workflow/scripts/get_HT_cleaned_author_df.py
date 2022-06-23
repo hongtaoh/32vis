@@ -34,7 +34,6 @@ def get_cross_type_dic(df):
 	        cross_type_dic[DOI] = False
 	return cross_type_dic
 
-
 if __name__ == '__main__':
 	# load data
 	cntry_df = pd.read_csv(MERGED_CNTRY_PREDICTED)
@@ -44,21 +43,21 @@ if __name__ == '__main__':
 		print('cntry_df has the same length with type_df')
 
 	# get the column of affiliation type
-	aff_types = type_df['Affiliation Type']
+	multi_aff_types = type_df['Multiclass Affiliation Type']
+	binary_aff_types = type_df['Binary Affiliation Type']
 
 	# assign it to cntry_df and reanme columns
-	cntry_df = cntry_df.assign(aff_type = aff_types)
+	cntry_df = cntry_df.assign(multi_aff_type = multi_aff_types)
+	cntry_df = cntry_df.assign(binary_aff_type = binary_aff_types)
 	cntry_df.rename(
-		columns = {'aff_type': 'Affiliation Type'}, 
+		columns = {
+			'multi_aff_type': 'Affiliation Type',
+			'binary_aff_type': 'Binary Type',
+		}, 
 		inplace=True
 	)
 
 	df = cntry_df.copy()
-
-	# get binary type
-	df['Binary Type'] = df['Affiliation Type'].apply(
-		lambda x: x if x == 'education' else 'non-education'
-	)
 
 	cross_country_dic = get_cross_country_dic(df)
 	cross_type_dic = get_cross_type_dic(df)
@@ -69,7 +68,6 @@ if __name__ == '__main__':
 	df['International Collaboration'] = df.DOI.apply(
     	lambda x: cross_country_dic[x]
 	)
-
 
 	df.to_csv(HT_CLEANED_AUTHOR_DF, index=False)
 

@@ -111,6 +111,8 @@ MERGED_AFF_TYPE_PREDICTED = pjoin(
     HT_CLASS_DATA_DIR, 
     'merged_aff_type_predicted.csv'
 )
+TYPE_CLASSIFICATION_REPORT = pjoin(HT_CLASS_DATA_DIR, 'aff_type_classification_report.txt')
+CNTRY_CLASSIFICATION_REPORT = pjoin(HT_CLASS_DATA_DIR, 'cntry_classification_report.txt')
 
 HT_CLEANED_AUTHOR_DF = pjoin(HT_CLASS_DATA_DIR, 'ht_cleaned_author_df.csv')
 
@@ -187,6 +189,8 @@ rule all:
         SANKEY_TS_DF,
         MERGED_CNTRY_PREDICTED,
         MERGED_AFF_TYPE_PREDICTED,
+        TYPE_CLASSIFICATION_REPORT,
+        CNTRY_CLASSIFICATION_REPORT,
         HT_CLEANED_AUTHOR_DF,
         HT_CLEANED_PAPER_DF,
 
@@ -279,7 +283,7 @@ rule CLASS_country:
         OPENALEX_REFERENCE_AUTHOR_DF_UNIQUE,
         OPENALEX_AUTHOR_DF,
         MERGED_AUTHOR_DF
-    output: MERGED_CNTRY_PREDICTED
+    output: MERGED_CNTRY_PREDICTED, CNTRY_CLASSIFICATION_REPORT
     shell: "python scripts/CLASS_country.py {input} {output}"
 
 rule CLASS_type:
@@ -288,7 +292,7 @@ rule CLASS_type:
         OPENALEX_REFERENCE_AUTHOR_DF_UNIQUE,
         OPENALEX_AUTHOR_DF,
         MERGED_AUTHOR_DF
-    output: MERGED_AFF_TYPE_PREDICTED
+    output: MERGED_AFF_TYPE_PREDICTED, TYPE_CLASSIFICATION_REPORT
     shell: "python scripts/CLASS_type.py {input} {output}"
 
 rule get_HT_cleaned_author_df:

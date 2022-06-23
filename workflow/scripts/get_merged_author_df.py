@@ -230,39 +230,34 @@ def update_with_vispubdata_author_data(VISPD, DF): # vispd, concat_df
 	return df_new
 
 def update_country_code(DF, DOI, NEW_DATA):
-	DF.loc[DF['DOI'] == DOI, 'First Institution Country Code'] = NEW_DATA
-	DF.loc[DF['DOI'] == DOI, 'Author Name'] = DF.loc[DF['DOI'] == DOI, 'IEEE Author Name']
+	DF.loc[DF['DOI'] == DOI, 'First Institution Country Code By Hand'] = NEW_DATA
+	# this is to change openalex author names to be the same as IEEE author names
+	# DF.loc[DF['DOI'] == DOI, 'Author Name'] = DF.loc[DF['DOI'] == DOI, 'IEEE Author Name']
 	return DF 
 
 def update_country_code_by_raw_string(DF, RAW_STRING, NEW_DATA):
-	DF.loc[DF['Raw Affiliation String'] == RAW_STRING, 'First Institution Country Code'] = NEW_DATA
-	return DF 
+    DF.loc[DF['Raw Affiliation String'] == RAW_STRING, 'First Institution Country Code By Hand'] = NEW_DATA
+    return DF 
 
 def update_type(DF, DOI, NEW_DATA):
-	DF.loc[DF['DOI'] == DOI, 'First Institution Type'] = NEW_DATA
-	return DF 
+    DF.loc[DF['DOI'] == DOI, 'First Institution Type By Hand'] = NEW_DATA
+    return DF 
 
 def update_type_by_raw_string(DF, RAW_STRING, NEW_DATA):
-	DF.loc[DF['Raw Affiliation String'] == RAW_STRING, 'First Institution Type'] = NEW_DATA
-	DF.loc[DF['Raw Affiliation String'] == RAW_STRING, 'Author Name'] = DF.loc[
-	DF['Raw Affiliation String'] == RAW_STRING, 'IEEE Author Name']
-	return DF 
+    DF.loc[DF['Raw Affiliation String'] == RAW_STRING, 'First Institution Type By Hand'] = NEW_DATA
+    return DF 
 
 def update_affiliations(DF, DOI, NEW_DATA):
-	# update both ieee author affiliation, alex first institution names and raw string
-	DF.loc[DF['DOI'] == DOI, 'IEEE Author Affiliation'] = NEW_DATA
-	DF.loc[DF['DOI'] == DOI, 'First Institution Name'] = NEW_DATA
-	DF.loc[DF['DOI'] == DOI, 'Raw Affiliation String'] = NEW_DATA
-	return DF 
+    # update both ieee author affiliation, alex first institution names and raw string
+    DF.loc[DF['DOI'] == DOI, 'IEEE Author Affiliation'] = NEW_DATA
+    DF.loc[DF['DOI'] == DOI, 'First Institution Name'] = NEW_DATA
+    DF.loc[DF['DOI'] == DOI, 'Raw Affiliation String'] = NEW_DATA
+    return DF 
 
 def update_author_name(DF, DOI, NEW_DATA):
-	DF.loc[DF['DOI'] == DOI, 'IEEE Author Name'] = NEW_DATA
-	DF.loc[DF['DOI'] == DOI, 'Author Name'] = NEW_DATA
-	return DF
+    DF.loc[DF['DOI'] == DOI, 'IEEE Author Name'] = NEW_DATA
+    return DF
 
-# def update_alex_first_institution_name(DF, DOI, NEW_DATA):
-# 	DF.loc[DF['DOI'] == DOI, 'First Institution Name'] = NEW_DATA
-# 	return DF
 
 def update_concat_df(DF): # DF here is concat_df
 	"""Update data for specific DOIs
@@ -279,7 +274,7 @@ def update_concat_df(DF): # DF here is concat_df
 	update_type(
 		DF, 
 		'10.1109/VISUAL.1996.568115',
-		['company']*2 + ['education'],
+		['company']*2 + ['facility'],
 	)
 	update_affiliations(
 		DF, 
@@ -403,7 +398,7 @@ def update_concat_df(DF): # DF here is concat_df
 	update_type(
 		DF, 
 		'10.1109/TVCG.2006.182',
-		['company']*1 + ['education']*4 
+		['education']*5,
 	)
 	update_affiliations(
 		DF, 
@@ -513,11 +508,22 @@ def update_concat_df(DF): # DF here is concat_df
 		 'UBS Group AG'] ,
 	)
 	# '10.1109/VISUAL.1999.809884',
-	# In this paper, openalex got country wrong
+	# In this paper, openalex got country wrong and ieee got some of the affiliation wrong
 	update_country_code(
 		DF, 
 		'10.1109/VISUAL.1999.809884',
 		['DE']*5,
+	)
+	update_type(
+		DF, 
+		'10.1109/VISUAL.1999.809884',
+		['nonprofit']*4 + ['education']*1,
+	)
+	update_affiliations(
+		DF, 
+		'10.1109/VISUAL.1999.809884',
+		['German National Research Centre for Information Technology, Germany']*4 + [
+		 'Department of Physics & Astronomy, University of Heidelberg, Germany'] ,
 	)
 	# '10.1109/VISUAL.1999.809920',
 	# openalex got country wrong
@@ -929,6 +935,41 @@ def update_concat_df(DF): # DF here is concat_df
 		'10.1109/TVCG.2021.3114876', 
 		["Sehi L'Yi", 'Qianwen Wang', 'Fritz Lekschas', 'Nils Gehlenborg'],
 	)
+	## I found the in this paper, Some authors' affiliations contain two institutions
+	update_country_code(
+		DF, 
+		'10.1109/TVCG.2011.207',
+		['DE']*4,
+	)
+	update_type(
+		DF, 
+		'10.1109/TVCG.2011.207',
+		['company'] + ['education']*1 + ['company']*2,
+	)
+	update_affiliations(
+		DF, 
+		'10.1109/TVCG.2011.207',
+		['Fraunhofer MEVIS, Germany'] + [
+			'Center of Complex Systems and Visualization (CeVis), University of Bremen, Germany']*1 + [
+			'Fraunhofer MEVIS, Germany']*2,
+	) 
+	## I found that in this paper, the first author has two affiliations
+	update_country_code(
+		DF, 
+		'10.1109/INFVIS.2004.1',
+		['FR']*3,
+	)
+	update_type(
+		DF, 
+		'10.1109/INFVIS.2004.1',
+		['education']*1 + ['nonprofit']*1 + ['education']*1
+	)
+	update_affiliations(
+		DF, 
+		'10.1109/INFVIS.2004.1',
+		['ecole des mines de nantes nantes france'] + ['INRIA']*1 + ['ecole des mines de nantes nantes france'],
+	) 
+
 	return DF
 
 def manual_update(DF, DOI, AUTHOR_NAME, COL_TO_CHANGE, TEXT):
@@ -938,62 +979,62 @@ def manual_update(DF, DOI, AUTHOR_NAME, COL_TO_CHANGE, TEXT):
 	DF.loc[(DF['DOI'] == DOI) & (DF['IEEE Author Name'] == AUTHOR_NAME), COL_TO_CHANGE] = TEXT
 
 def manual_update_concat_df(DF): # DF here is concat_df
-	manual_update(
-		DF,
-		'10.1109/VISUAL.1997.663848',
-		'R. Machiraju',
-		'Raw Affiliation String',
-		'Mississippi State University, Mississippi, United States'
-	)
-	manual_update(
-		DF,
-		'10.1109/VISUAL.2004.128',
-		'E. Parkinson',
-		'Raw Affiliation String',
-		'VA Tech Hydro Corporation, Swizerland',
-	)
-	manual_update(
-		DF,
-		'10.1109/VISUAL.2004.128',
-		'E. Parkinson',
-		'First Institution Type',
-		'company'
-	)
-	manual_update(
-		DF,
-		'10.1109/VISUAL.2004.128',
-		'E. Parkinson',
-		'First Institution Country Code',
-		'CH',
-	)
-	manual_update(
-		DF,
-		'10.1109/INFVIS.1999.801864',
-		'J. Sean',
-		'IEEE Author Name',
-		'Jeffrey Senn',
-	)
-	manual_update(
-		DF,
-		'10.1109/INFVIS.1999.801864',
-		'J. Sean',
-		'Author Name',
-		'Jeffrey Senn',
-	)
-	manual_update(
-		DF,
-		'10.1109/TVCG.2019.2934260',
-		'Andrew J. Solis',
-		'Raw Institution String',
-		'University of Texas Austin, Texas, United States',
-	)
-	manual_update(
-		DF,
-		'10.1109/TVCG.2019.2934260',
-		'Andrew J. Solis',
-		'First Institution name',
-		'University of Texas Austin',
-	)
+    manual_update(
+        DF,
+        '10.1109/VISUAL.1997.663848',
+        'R. Machiraju',
+        'Raw Affiliation String',
+        'Mississippi State University, Mississippi, United States'
+    )
+    manual_update(
+        DF,
+        '10.1109/VISUAL.2004.128',
+        'E. Parkinson',
+        'Raw Affiliation String',
+        'VA Tech Hydro Corporation, Swizerland',
+    )
+    manual_update(
+        DF,
+        '10.1109/VISUAL.2004.128',
+        'E. Parkinson',
+        'First Institution Type',
+        'company'
+    )
+    manual_update(
+        DF,
+        '10.1109/VISUAL.2004.128',
+        'E. Parkinson',
+        'First Institution Country Code',
+        'CH',
+    )
+    manual_update(
+        DF,
+        '10.1109/INFVIS.1999.801864',
+        'J. Sean',
+        'IEEE Author Name',
+        'Jeffrey Senn',
+    )
+    manual_update(
+        DF,
+        '10.1109/INFVIS.1999.801864',
+        'J. Sean',
+        'Author Name',
+        'Jeffrey Senn',
+    )
+    manual_update(
+        DF,
+        '10.1109/TVCG.2019.2934260',
+        'Andrew J. Solis',
+        'Raw Affiliation String',
+        'University of Texas Austin, Texas, United States',
+    )
+    manual_update(
+        DF,
+        '10.1109/TVCG.2019.2934260',
+        'Andrew J. Solis',
+        'First Institution Name',
+        'University of Texas Austin',
+    )
 
 def get_concat_df_filled(DF): # DF here is concat_df
 	""" find out who don't have affilition, and fill the data manually
@@ -1089,8 +1130,25 @@ def binary_type(row):
 		binary_type = np.NaN
 	return binary_type
 
+def binary_type_by_hand(row):
+	'''This is to transform type handcoded by me to binary type
+	'''
+	if row['First Institution Type By Hand'] == 'education':
+		binary_type = 'education'
+	elif row['First Institution Type By Hand'] in [
+		'facility', 'government', 'company', 
+		'healthcare', 'archive', 'nonprofit', 'other', 
+		# just in case I have input these by hand:
+		'noneducation', 'non-education'
+	]:
+		binary_type = 'non-education'
+	else:
+		binary_type = np.NaN
+	return binary_type
+
 def add_binary_type(DF): # DF here is concat_df_filled
 	DF['Binary Institution Type'] = DF.apply(binary_type, axis=1)
+	DF['Binary Institution Type By Hand'] = DF.apply(binary_type_by_hand, axis=1)
 	return DF 
 
 def check_delete_rename(DF): # DF here is concat_df_filled
@@ -1126,8 +1184,8 @@ def check_delete_rename(DF): # DF here is concat_df_filled
 		'IEEE Author Affiliation': 'IEEE Author Affiliation Updated',
 		'First Institution Name': 'First Institution Name Updated',
 		'Raw Affiliation String': 'Raw Affiliation String Updated',
-		'First Institution Type': 'First Institution Type Updated',
-		'First Institution Country Code': 'First Institution Country Code Updated',
+		# 'First Institution Type': 'First Institution Type Updated',
+		# 'First Institution Country Code': 'First Institution Country Code Updated',
 	}, inplace=True)
 	return DF
 
