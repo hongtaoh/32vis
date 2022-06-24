@@ -122,7 +122,7 @@ HT_CLEANED_PAPER_DF = pjoin(HT_CLASS_DATA_DIR, 'ht_cleaned_paper_df.csv')
 # Plots Data
 ###############################################################################
 
-AUTHOR_CHORD_DATA_DIR = pjoin(PLOTS_DATA_DIR, "author_cord")
+AUTHOR_CHORD_DATA_DIR = pjoin(PLOTS_DATA_DIR, "author_chord")
 COOCCURRANCE_DATA_DIR = pjoin(PLOTS_DATA_DIR, "co_occurrance")
 SANKY_DATA_DIR = pjoin(PLOTS_DATA_DIR, 'sankey')
 
