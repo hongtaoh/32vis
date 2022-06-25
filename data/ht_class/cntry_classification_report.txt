@@ -1,2 +1,9 @@
+there are 75706 training examples in country classification.
 The following is the result for affiliation country code classification
-accuracy 0.9356327734324913
+Test set accuracy 0.9309866596222428
+precision: 0.9288343232880056
+recall: 0.9309866596222428
+fscore: 0.9282576582900899
+support: None
+
+Training set accuracy 0.9600092464170135

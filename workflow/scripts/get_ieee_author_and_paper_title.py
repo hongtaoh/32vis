@@ -21,6 +21,8 @@ import random
 import time
 from io import StringIO
 from html.parser import HTMLParser
+from urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter
 import re
 
 PAPERS_TO_STUDY = sys.argv[1]
@@ -28,6 +30,21 @@ VISPUBDATA_PLUS = sys.argv[2]
 IEEE_AUTHOR_DF = sys.argv[3]
 IEEE_PAPER_DF = sys.argv[4]
 PROBLEM_DOIS = sys.argv[5]
+
+def get_s():
+	# set retry if status codes in [ 500, 502, 503, 504, 429]
+	# als return headers
+	s = requests.Session()
+	retries = Retry(total=5,
+		backoff_factor=0.1,
+		status_forcelist=[ 500, 502, 503, 504, 429],
+	)
+	s.mount('http://', HTTPAdapter(max_retries=retries))
+	headers = {
+	"user-agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36",
+	'Accept': 'application/json',
+	}
+	return s, headers
 
 def get_dicts(VISPUBDATA_PLUS):
 	# get year_dict and title_dict
@@ -40,11 +57,11 @@ def get_dicts(VISPUBDATA_PLUS):
 	return doi_year_dict, doi_title_dict
 
 def get_response(URL):
-	response = requests.get(url=URL, headers=headers)
+	response = s.get(url=URL, headers=headers)
 	while response.status_code != 200:
-		print('response status code is not 200. retrying now...')
+		print(f'response status code is {response.status_code}. retrying now...')
 		time.sleep(5)
-		response = requests.get(url=URL, headers=headers)
+		response = s.get(url=URL, headers=headers)
 	return response 
 
 def get_soup(RESPONSE):
@@ -182,6 +199,8 @@ def main(DOIS):
 		print(f'{doi_index} is done')
 
 if __name__ == '__main__':
+	s = get_s()[0]
+	headers = get_s()[1]
 	PAPERS = pd.read_csv(PAPERS_TO_STUDY, header=None)
 	DOIS = PAPERS[0].tolist()
 	random_dois = random.sample(DOIS, 10)

@@ -1,0 +1,72 @@
+1656117284390	geckodriver	INFO	Listening on 127.0.0.1:50996
+1656117285413	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilezLsNhv"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1656117286315	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilezLsNhv/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1656117288713	Marionette	INFO	Listening on port 51003
+1656117288786	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1656119721053	Marionette	INFO	Stopped listening on port 51003
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1656163522569	geckodriver	INFO	Listening on 127.0.0.1:51913
+1656163523606	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilesTvbEP"
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1656163525076	Marionette	INFO	Marionette enabled
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T/rust_mozprofilesTvbEP/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1656163528516	Marionette	INFO	Listening on port 51924
+1656163528700	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://scholar.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DEfficient%2BComputation%2Band%2BVisualization%2Bof%2BCoherent%2BStructures%2Bin%2BFluid%2BFlow%2BApplications%26btnG%3D&hl=en&q=EgSSl3RiGKua3JUGIhCpjlpiljPCanzcd4YCOjiPMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DQuery-driven%2Bvisualization%2Bof%2Blarge%2Bdata%2Bsets%26btnG%3D&hl=en&q=EgSSl3RiGIWb3JUGIhCz-tjsDDyB04t_KE0Ccz6jMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DMaximum%2Bentropy%2Blight%2Bsource%2Bplacement%26btnG%3D&hl=en&q=EgSSl3RiGOmb3JUGIhD4A5K5rXY3yOvTShYlAGllMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DThe%2Bshape%2Bof%2BShakespeare%253A%2Bvisualizing%2Btext%2Busing%2Bimplicit%2Bsurfaces%26btnG%3D&hl=en&q=EgSSl3RiGOuc3JUGIhBsUPGdT_S0nTjz5VkvoINCMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DTime-critical%2Bmultiresolution%2Bscene%2Brendering%26btnG%3D&hl=en&q=EgSSl3RiGNmd3JUGIhDxvoNhP0bPF6_7YuwgaL1TMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DA%2Bdistributed%252C%2Bparallel%252C%2Binteractive%2Bvolume%2Brendering%2Bpackage%26btnG%3D&hl=en&q=EgSSl3RiGIOf3JUGIhD5wfaLkZw6Xod3DDr1iX0cMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DInteractive%2BMultiscale%2BTensor%2BReconstruction%2Bfor%2BMultiresolution%2BVolume%2BVisualization%26btnG%3D&hl=en&q=EgSSl3RiGPGf3JUGIhCUJv6Of0WM8kY0qa6VRKdQMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DWarning%252C%2BBias%2BMay%2BOccur%253A%2BA%2BProposed%2BApproach%2Bto%2BDetecting%2BCognitive%2BBias%2Bin%2BInteractive%2BVisual%2BAnalytics%26btnG%3D&hl=en&q=EgSSl3RiGN-g3JUGIhAPamcmORPRcqHTLEsd8pN9MgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DScatterplots%253A%2BTasks%252C%2BData%252C%2Band%2BDesigns%26btnG%3D&hl=en&q=EgSSl3RiGMKh3JUGIhBAOdGKD12gUlmv9_7MIFYmMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DDomain%2Banalysis%253A%2Ba%2Btechnique%2Bto%2Bdesign%2Ba%2Buser-centered%2Bvisualization%2Bframework%26btnG%3D&hl=en&q=EgSSl3RiGKai3JUGIhDmtDhI8SNnX5l6NMClUz47MgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DThe%2BAnchoring%2BEffect%2Bin%2BDecision-Making%2Bwith%2BVisual%2BAnalytics%26btnG%3D&hl=en&q=EgSSl3RiGNqj3JUGIhDJ44FHs8miLYsiC4ZtZLMXMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DSupporting%2Bvisual%2Bexploration%2Bfor%2Bmultiple%2Busers%2Bin%2Blarge%2Bdisplay%2Benvironments%26btnG%3D&hl=en&q=EgSSl3RiGMik3JUGIhBBuUFBttOkmHXhPdqQBQS5MgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DQuantifying%2Bthe%2BVisual%2BImpact%2Bof%2BClassification%2BBoundaries%2Bin%2BChoropleth%2BMaps%26btnG%3D&hl=en&q=EgSSl3RiGK6l3JUGIhBiT1nr6KQDxS7fp6MKDWNRMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DExplicit%2Bfrequency%2Bcontrol%2Bfor%2Bhigh-quality%2Btexture-based%2Bflow%2Bvisualization%26btnG%3D&hl=en&q=EgSSl3RiGKWm3JUGIhDUh6mcNm7EaPX1CBJF_TNkMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DOrigraph%253A%2BInteractive%2BNetwork%2BWrangling%26btnG%3D&hl=en&q=EgSSl3RiGJOn3JUGIhBci-NWeVHX18AX5y8uFev6MgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+JavaScript error: https://www.google.com/sorry/index?continue=https://scholar.google.com/scholar%3Fhl%3Den%26as_sdt%3D0%252C50%26q%3DDimLift%253A%2BInteractive%2BHierarchical%2BData%2BExploration%2BThrough%2BDimensional%2BBundling%26btnG%3D&hl=en&q=EgSSl3RiGLOo3JUGIhBoazAogLPF6oTLNdVWdYFUMgFy, line 1: SyntaxError: expected expression, got ','
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+1656165497549	Marionette	INFO	Stopped listening on port 51924
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+

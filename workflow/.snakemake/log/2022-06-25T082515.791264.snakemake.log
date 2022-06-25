@@ -1,0 +1,53 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                    count    min threads    max threads
+-----------------------------------  -------  -------------  -------------
+CLASS_country                              1              1              1
+CLASS_type                                 1              1              1
+all                                        1              1              1
+get_HT_cleaned_author_df                   1              1              1
+get_gscholar_data                          1              1              1
+get_ht_cleaned_paper_df                    1              1              1
+get_wos_id                                 1              1              1
+plot_data_author_chord_diagram_data        1              1              1
+plot_sankey_data                           1              1              1
+plot_top_concepts_trends                   1              1              1
+plot_vis_concepts_cooccurance_data         1              1              1
+total                                     11              1              1
+
+Select jobs to execute...
+
+[Sat Jun 25 08:25:16 2022]
+rule get_gscholar_data:
+    input: ../data/processed/papers_to_study.txt, ../data/processed/ieee_paper_df.csv
+    output: ../data/processed/gscholar_data.csv
+    jobid: 12
+    priority: 9
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jun 25 08:58:20 2022]
+Finished job 12.
+1 of 11 steps (9%) done
+Select jobs to execute...
+
+[Sat Jun 25 08:58:20 2022]
+rule get_wos_id:
+    input: ../data/processed/vispd_plus_good_papers.txt
+    output: ../data/interim/methods_reporting/wos_id.csv
+    jobid: 14
+    priority: 7
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+Terminating processes on user request, this might take some time.
+[Sat Jun 25 08:58:34 2022]
+Error in rule get_wos_id:
+    jobid: 14
+    output: ../data/interim/methods_reporting/wos_id.csv
+    shell:
+        python scripts/get_wos_id.py ../data/processed/vispd_plus_good_papers.txt ../data/interim/methods_reporting/wos_id.csv
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: /Users/hongtaoh/Desktop/github/32visNEW/workflow/.snakemake/log/2022-06-25T082515.791264.snakemake.log

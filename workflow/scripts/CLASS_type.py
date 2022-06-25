@@ -84,24 +84,43 @@ def logist_regression(df, LABEL):
 	y = df[LABEL]
 	X_train, X_test, y_train, y_test = train_test_split(
 		X, y, test_size=0.2, random_state = 42)
-	logreg = Pipeline([('vect', CountVectorizer(stop_words='english', min_df = 5)),
+	logreg = Pipeline([('vect', CountVectorizer(stop_words='english', min_df = 2)),
 				('clf', LogisticRegression(max_iter=600)),
 			   ])
 	print('model training now...')
 	logreg.fit(X_train, y_train)
 
-	y_pred = logreg.predict(X_test)
+	y_train_pred = logreg.predict(X_train)
+	y_test_pred = logreg.predict(X_test)
 
 	target_names = list(set(df.label_str)) if LABEL == 'label' else list(set(df.binary_label_str))
 	logreg_type = 'multiclass classification' if LABEL == 'label' else 'binary classification'
 	
 	f = open(TYPE_CLASSIFICATION_REPORT,'a')
 	f.write('The following is the result for aff type' + ' : ' + logreg_type + '\n')
-	f.write('accuracy %s' % accuracy_score(y_pred, y_test))
+	f.write('Test set accuracy %s' % accuracy_score(y_test, y_test_pred))
 	f.write('\n')
-	f.write(classification_report(y_test, y_pred, target_names=target_names))
+	precision, recall, fscore, support = multi_score(
+		y_test, 
+		y_test_pred, 
+		average='weighted'
+	)
+	f.write('precision: {}'.format(precision))
+	f.write('\n')
+	f.write('recall: {}'.format(recall))
+	f.write('\n')
+	f.write('fscore: {}'.format(fscore))
+	f.write('\n')
+	f.write('support: {}'.format(support))
 	f.write('\n')
 	f.write('\n')
+	f.write('Training set accuracy %s' % accuracy_score(y_train, y_train_pred))
+	# f.write('\n')
+	# f.write(classification_report(y_test, y_test_pred, target_names=target_names))
+	f.write('\n')
+	f.write('\n')
+
+	f.close()
 
 	return logreg
 
@@ -115,21 +134,21 @@ def get_processed_merged_author(DF, LOGREG_MULTI, LOGREG_BINARY):
 		- DF with binary and multiclass classification results
 	'''
 	# clean text for affs to be predicted
-	DF['IEEE Author Affiliation Filled'] = DF[
+	DF['IEEE Author Affiliation Filled_Processed'] = DF[
 		'IEEE Author Affiliation Filled'].apply(clean_text)
-	pred_binary = LOGREG_BINARY.predict(DF['IEEE Author Affiliation Filled'])
+	pred_binary = LOGREG_BINARY.predict(DF['IEEE Author Affiliation Filled_Processed'])
 	pred_binary_type = [id_to_binary_type[x] for x in pred_binary]
-	pred_multi = LOGREG_MULTI.predict(DF['IEEE Author Affiliation Filled'])
+	pred_multi = LOGREG_MULTI.predict(DF['IEEE Author Affiliation Filled_Processed'])
 	pred_multi_type = [id_to_multi_type[x] for x in pred_multi]
 	DF['aff_type_results_binary'] = pred_binary_type
 	DF['aff_type_results_multiclass'] = pred_multi_type
-	# use type by hand if it exists one
+	# use type by hand if exists
 	DF = DF.assign(aff_type_results_binary_updated = 
 	    np.where(DF['Binary Institution Type By Hand'].notnull(), 
 	         DF['Binary Institution Type By Hand'],
 	         DF['aff_type_results_binary']
 	        ))
-	# use type by hand if it exists one
+	# use type by hand if exists
 	DF = DF.assign(aff_type_results_multiclass_updated = 
 	    np.where(DF['First Institution Type By Hand'].notnull(), 
 	         DF['First Institution Type By Hand'],
@@ -158,6 +177,14 @@ if __name__ == '__main__':
 
 	# clean affiliation texts 
 	df['aff'] = df['aff'].apply(clean_text)
+
+	# drop duplicates after text pre-processing
+	df = df.drop_duplicates()
+	f = open(TYPE_CLASSIFICATION_REPORT,'a')
+	f.write(f'there are {df.shape[0]} training examples in aff type classification.')
+	f.write('\n')
+	f.write('\n')
+	f.close()
 
 	# get dicts
 	multi_type_to_id, id_to_multi_type, binary_type_to_id, id_to_binary_type = get_dicts(df)

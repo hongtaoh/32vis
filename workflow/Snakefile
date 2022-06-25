@@ -19,6 +19,8 @@ HT_CLASS_DATA_DIR = pjoin(DATA_DIR, "ht_class")
 # raw data file downloaded directly from VISPUBDATA as CSV
 VISPUBDATA = pjoin(RAW_DATA_DIR, 'vispubdata.csv')
 
+DOIS_2021 = pjoin(RAW_DATA_DIR, 'dois_2021.csv')
+
 ###############################################################################
 # Interim outputs
 ###############################################################################
@@ -58,8 +60,6 @@ WOS_ID = pjoin(METHODS_REPORTING_DIR, 'wos_id.csv')
 ###############################################################################
 
 TITLES_2021 = pjoin(PROCESSED_DATA_DIR, 'titles_2021.csv')
-
-DOIS_2021 = pjoin(PROCESSED_DATA_DIR, 'dois_2021.csv')
 
 VISPUBDATA_PLUS = pjoin(PROCESSED_DATA_DIR, 'vispubdata_plus.csv')
 
@@ -147,7 +147,6 @@ SANKEY_TS_DF = pjoin(SANKY_DATA_DIR, 'sankey_ts_df.csv')
 rule all:
     input:
         TITLES_2021,
-        DOIS_2021,
         VISPUBDATA_PLUS,
         VISPD_PLUS_GOOD_PAPERS,
         VISPD_OPENALEX_MATCH_1,
@@ -179,7 +178,7 @@ rule all:
         OPENALEX_REFERENCE_CONCEPT_DF_UNIQUE,
         GSCHOLAR_DATA,
         AWARD_PAPER_DF,
-        WOS_ID,
+        # WOS_ID,
         AUTHOR_CHORD_DF, 
         TS_AUTHOR_CHORD_DF,
         AGGREGATED_COOCCURANCE_DF, 
@@ -199,11 +198,11 @@ rule get_titles_2021:
     priority: 99
     shell: "python scripts/get_titles_2021.py {output}"
 
-rule get_dois_2021:
-    input: TITLES_2021, VISPUBDATA
-    output: DOIS_2021, VISPUBDATA_PLUS
+rule get_vispd_plus:
+    input: DOIS_2021, VISPUBDATA
+    output: VISPUBDATA_PLUS
     priority: 90
-    shell: "python scripts/get_dois_2021.py {input} {output}"
+    shell: "python scripts/get_vispd_plus.py {input} {output}"
 
 rule get_vispd_plus_good_papers:
     input: VISPUBDATA_PLUS

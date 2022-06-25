@@ -82,15 +82,32 @@ def logist_regression(df):
 	print('model training now...')
 	logreg.fit(X_train, y_train)
 
-	y_pred = logreg.predict(X_test)
+	y_train_pred = logreg.predict(X_train)
+	y_test_pred = logreg.predict(X_test)
 
 	target_names = list(set([id_to_cntry[x] for x in y_test]))
 	
 	f = open(CNTRY_CLASSIFICATION_REPORT,'a')
 	f.write('The following is the result for affiliation country code classification' + '\n')
-	f.write('accuracy %s' % accuracy_score(y_pred, y_test))
-	# f.write('\n')
-	# f.write(classification_report(y_test, y_pred, target_names=target_names))
+	f.write('Test set accuracy %s' % accuracy_score(y_test_pred, y_test))
+	f.write('\n')
+	precision, recall, fscore, support = multi_score(
+		y_test, 
+		y_test_pred, 
+		average='weighted'
+	)
+	f.write('precision: {}'.format(precision))
+	f.write('\n')
+	f.write('recall: {}'.format(recall))
+	f.write('\n')
+	f.write('fscore: {}'.format(fscore))
+	f.write('\n')
+	f.write('support: {}'.format(support))
+	f.write('\n')
+	f.write('\n')
+	f.write('Training set accuracy %s' % accuracy_score(y_train, y_train_pred))
+	# f.write(classification_report(y_test, y_test_pred, target_names=target_names))
+	f.close()
 
 	return logreg
 
@@ -103,11 +120,12 @@ def get_processed_merged_author(DF, LOGREG):
 		- DF with cntry classification results
 	'''
 	# clean text for affs to be predicted
-	DF['IEEE Author Affiliation Filled'] = DF[
+	DF['IEEE Author Affiliation Filled_Processed'] = DF[
 		'IEEE Author Affiliation Filled'].apply(clean_text)
-	pred = LOGREG.predict(DF['IEEE Author Affiliation Filled'])
+	pred = LOGREG.predict(DF['IEEE Author Affiliation Filled_Processed'])
 	results = [id_to_cntry[x] for x in pred]
 	DF['country_code_results'] = results
+	# if I have handcoded the country codes, use those first
 	DF = DF.assign(country_code_results_updated = 
 	    np.where(DF['First Institution Country Code By Hand'].notnull(), 
 	         DF['First Institution Country Code By Hand'],
@@ -122,7 +140,7 @@ if __name__ == '__main__':
 	# openalex author df for VIS papers:
 	OA_AUTHOR = sys.argv[3]
 	MERGED_AUTHOR = sys.argv[4]
-	MERGED_CNTRY_PREDICTED = sys.argv[5]
+	MERGED_CNTRy_test_predICTED = sys.argv[5]
 	CNTRY_CLASSIFICATION_REPORT = sys.argv[6]
 
 	# load datasets:
@@ -136,6 +154,13 @@ if __name__ == '__main__':
 
 	# clean affiliation texts 
 	df['aff'] = df['aff'].apply(clean_text)
+
+	df = df.drop_duplicates()
+	f = open(CNTRY_CLASSIFICATION_REPORT,'a')
+	f.write(f'there are {df.shape[0]} training examples in country classification.')
+	f.write('\n')
+	f.close()
+
 
 	# get dicts
 	cntry_to_id, id_to_cntry = get_dicts(df)
@@ -168,7 +193,7 @@ if __name__ == '__main__':
 		'IEEE Author Affiliation Filled':'Affiliation Name',
 		'country_code_results_updated':'Affiliation Country Code', 
 		}
-	merged_cntry_predicted = merged_processed[cols_to_keep]
-	merged_cntry_predicted.rename(columns = col_renamer).to_csv(
-		MERGED_CNTRY_PREDICTED, index = False
+	merged_cntry_test_predicted = merged_processed[cols_to_keep]
+	merged_cntry_test_predicted.rename(columns = col_renamer).to_csv(
+		MERGED_CNTRy_test_predICTED, index = False
 	)

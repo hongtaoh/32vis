@@ -1,0 +1,74 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                    count    min threads    max threads
+-----------------------------------  -------  -------------  -------------
+CLASS_type                                 1              1              1
+all                                        1              1              1
+get_HT_cleaned_author_df                   1              1              1
+get_ht_cleaned_paper_df                    1              1              1
+plot_data_author_chord_diagram_data        1              1              1
+total                                      5              1              1
+
+Select jobs to execute...
+
+[Sat Jun 25 10:29:29 2022]
+rule CLASS_type:
+    input: ../data/processed/large/openalex_citation_author_df.csv, ../data/processed/openalex_reference_author_df_unique.csv, ../data/interim/openalex_author_df.csv, ../data/processed/merged_author_df.csv
+    output: ../data/ht_class/merged_aff_type_predicted.csv, ../data/ht_class/aff_type_classification_report.txt
+    jobid: 17
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jun 25 10:30:17 2022]
+Finished job 17.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Sat Jun 25 10:30:17 2022]
+rule get_HT_cleaned_author_df:
+    input: ../data/ht_class/merged_country_predicted.csv, ../data/ht_class/merged_aff_type_predicted.csv
+    output: ../data/ht_class/ht_cleaned_author_df.csv
+    jobid: 15
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jun 25 10:30:20 2022]
+Finished job 15.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Sat Jun 25 10:30:20 2022]
+rule get_ht_cleaned_paper_df:
+    input: ../data/processed/papers_to_study.txt, ../data/processed/vispubdata_plus.csv, ../data/processed/openalex_paper_df.csv, ../data/ht_class/ht_cleaned_author_df.csv, ../data/processed/gscholar_data.csv, ../data/interim/award_paper_df.csv
+    output: ../data/ht_class/ht_cleaned_paper_df.csv
+    jobid: 21
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jun 25 10:30:30 2022]
+Finished job 21.
+3 of 5 steps (60%) done
+Select jobs to execute...
+
+[Sat Jun 25 10:30:30 2022]
+rule plot_data_author_chord_diagram_data:
+    input: ../data/ht_class/ht_cleaned_author_df.csv
+    output: ../data/plots/author_chord/author_chord_df.csv, ../data/plots/author_chord/ts_author_chord_df.csv
+    jobid: 14
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jun 25 10:30:32 2022]
+Finished job 14.
+4 of 5 steps (80%) done
+Select jobs to execute...
+
+[Sat Jun 25 10:30:32 2022]
+localrule all:
+    input: ../data/processed/titles_2021.csv, ../data/processed/vispubdata_plus.csv, ../data/processed/vispd_plus_good_papers.txt, ../data/interim/vispd_openalex_match_1.csv, ../data/interim/checking/title_query_empty_doi_query_404_1.txt, ../data/interim/checking/title_query_404_1.txt, ../data/interim/checking/title_query_empty_doi_query_404_2.txt, ../data/interim/checking/title_query_404_2.txt, ../data/interim/checking/doi_query_404_2.txt, ../data/processed/papers_to_study.txt, ../data/processed/openalex_paper_df.csv, ../data/interim/openalex_author_df.csv, ../data/processed/openalex_concept_df.csv, ../data/processed/openalex_reference_df.csv, ../data/interim/checking/title_query_empty_doi_query_404_dfs.txt, ../data/interim/checking/title_query_404_dfs.txt, ../data/interim/checking/doi_query_404_dfs.txt, ../data/processed/large/openalex_citation_author_df.csv, ../data/processed/large/openalex_citation_concept_df.csv, ../data/processed/openalex_citation_paper_df.csv, ../data/processed/ieee_paper_df.csv, ../data/interim/ieee_author_df.csv, ../data/interim/checking/ieee_scraping_problem_dois.txt, ../data/processed/merged_author_df.csv, ../data/processed/openalex_reference_paper_df.csv, ../data/processed/large/openalex_reference_author_df.csv, ../data/processed/large/openalex_reference_concept_df.csv, ../data/processed/openalex_reference_paper_df_unique.csv, ../data/processed/openalex_reference_author_df_unique.csv, ../data/processed/openalex_reference_concept_df_unique.csv, ../data/processed/gscholar_data.csv, ../data/interim/award_paper_df.csv, ../data/plots/author_chord/author_chord_df.csv, ../data/plots/author_chord/ts_author_chord_df.csv, ../data/plots/co_occurrance/aggregated_cooccurance_df.csv, ../data/plots/co_occurrance/ts_aggregated_cooccurance_df.csv, ../data/plots/top_concepts_trends_df.csv, ../data/plots/sankey/sankey_aggregated_df.csv, ../data/plots/sankey/sankey_ts_df.csv, ../data/ht_class/merged_country_predicted.csv, ../data/ht_class/merged_aff_type_predicted.csv, ../data/ht_class/aff_type_classification_report.txt, ../data/ht_class/cntry_classification_report.txt, ../data/ht_class/ht_cleaned_author_df.csv, ../data/ht_class/ht_cleaned_paper_df.csv
+    jobid: 0
+    resources: tmpdir=/var/folders/z2/5kr96fyn63z_tj_bwr33t5dw0000gn/T
+
+[Sat Jun 25 10:30:32 2022]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: /Users/hongtaoh/Desktop/github/32visNEW/workflow/.snakemake/log/2022-06-25T102928.512823.snakemake.log
