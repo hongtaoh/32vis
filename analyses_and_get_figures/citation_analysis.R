@@ -12,6 +12,17 @@ library("olsrr")
 
 df = read.csv('../data/ht_class/ht_cleaned_paper_df.csv')
 df = df[df$Year <= 2020, ]
+
+########## CONFERENCE TRACKS
+
+fit <- aov(Number.of.Citations ~ Conference, data = df)
+summary(fit)
+
+## All pairs are significant except for vis-vast
+TukeyHSD(fit, conf.level = 0.95)
+plot(TukeyHSD((fit)))
+
+###########
 df <- mutate(df, citenum_non_zero = Number.of.Citations + 0.99)
 df <- mutate(
   df, 
@@ -27,6 +38,7 @@ model = lm(Number.of.Citations ~
 
 summary(model)
 
+# should be below 5
 vif(model)
 
 ols_plot_resid_fit(model)
@@ -74,15 +86,6 @@ stargazer(model3)
 
 # df <- mutate(df, citenum_non_zero = Number.of.Citations + 0.99)
 
-########## CONFERENCE TRACKS
-
-fit <- aov(Number.of.Citations ~ Conference, data = df)
-summary(fit)
-
-## All pairs are significant except for vis-vast
-TukeyHSD(fit, conf.level = 0.95)
-plot(TukeyHSD((fit)))
-
 ######################################### PLOTS
 
 ggplot(df, aes(x = citenum_non_zero, y = Award)) + 
@@ -106,10 +109,10 @@ type <- paste(toString(long$variable),
                      )
 long$type = type
 
-ggplot(long, aes(x = citenum_non_zero, y = type)) + 
-  geom_density_ridges() + 
-  scale_x_continuous(
-    trans = 'log10',
-    breaks=trans_breaks('log10', function(x) 10^x),
-    labels=trans_format('log10', math_format(10^.x))
-  )
+# ggplot(long, aes(x = citenum_non_zero, y = type)) + 
+#   geom_density_ridges() + 
+#   scale_x_continuous(
+#     trans = 'log10',
+#     breaks=trans_breaks('log10', function(x) 10^x),
+#     labels=trans_format('log10', math_format(10^.x))
+#   )
