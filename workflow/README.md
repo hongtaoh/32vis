@@ -16,11 +16,13 @@ The only raw data we had is [Vispubdata](https://docs.google.com/spreadsheets/u/
 
 ### 2. Get titles and dois of VIS 2021 papers
 
+NOTE: BECAUSE CROSSREF API IS UNSTABLE, YIELDING DIFFERENT RESULTS FROM TIME TO TIME. WE DECIDED TO GET THE DOIS OF VIS2021 PAPERS AND PUT THE DATA INTO THE `raw` DATA FOLDER. THE INITIAL SCRIPT WE USED CAN BE FOUND IN `scripts/deprecated` FOLDER. 
+
 Vispubdata does not contain data for VIS 2021 papers. We had to obtain the data on our own. 
 
 I obtained the titles of VIS 2021 papers using the script of `get_titles_2021.py`. The output of this step is `processed/titles_2021.csv` which contains 170 paper titles. 
 
-Then, I used the script of `get_dois_2021.py` to get the DOIs for the paper titles in `processed/titles_2021.csv` through the API of CrossRef ("habanero"). 22 paper failed to have valid IEEE doi prefix (‘10.1109’). For papers with IEEE DOI Prefix, there are 5 papers whose CrossRef title does not match with the title shown on IEEE VIS 2021. Therefore, there are in total 22 + 5 = 27 papers whose query results are false. For these 27 papers, I manually collected their DOIs from IEEE Xplore. The output file is `processed/dois_2021.csv`. I then merged this file with VISPUBDATA and got `vispubdata_plus.csv` which contains data for VIS papers from 1990 to 2021. 
+Then, I used the script of `get_dois_2021.py` to get the DOIs for the paper titles in `processed/titles_2021.csv` through the API of CrossRef ("habanero"). 23 paper failed to have valid IEEE doi prefix (‘10.1109’). For papers with IEEE DOI Prefix, there are 4 papers whose CrossRef title does not match with the title shown on IEEE VIS 2021. Therefore, there are in total 23 + 4 = 27 papers whose query results are false. For these 27 papers, I manually collected their DOIs from IEEE Xplore. The output file is `processed/dois_2021.csv`. I then merged this file with VISPUBDATA and got `vispubdata_plus.csv` which contains data for VIS papers from 1990 to 2021. 
 
 Note that in this step, I have already validated the match results. How I did it is in the notebook of `01-obtain-2021-paper-doi-from-crossref-and-ieee.ipynb`. For papers whose DOIs contain '10.1109' AND whose CR titles match title I scraped, I didn't inspect them because they are correct results. Then I filtered out papers whose titles do not match AND whose DOI does not contain '10.1109'. For papers whose DOI does not contain '10.1109', it is apparent that they are wrong results. 
 
@@ -48,29 +50,28 @@ With the notebook of `workflow/notebooks/05-Checking-no-matching-and-no-result-t
 
     Therefore, even for papers with successful query results (i.e., title query has results, or title query unsuccessful but doi query is successful), I need to manually check whether their results are the same papers as those on VISPUBDATA. 
 
-The conclusion of my manual validation is that among 11 papers that do not have results in successful title query (Background: Sometimes OpenAlex will return results in title query but the query result is empty), 4 can be identified through title query on OpenAlex if I modify the title a little bit. 
+The conclusion of my manual validation is that only one paper did not have results in successful title query and this paper indeed did not exist in OpenAlex database. 
 
-There are 52 papers whose title queries are successful (and not empty) but whose title AND DOI do not match with the information on VISPUBDATA. I manually checked them. I found that 17 papers are indeed wrong results. Among these 17, except for two papers (HyperLic, Escape maps), 15 can be identified via DOI or using a different index in the title query results (one paper can be identified successfully if I remove the `#` in the title).
+There are 72 papers whose title queries are successful (and not empty) but whose title AND DOI do not match with the information on VISPUBDATA. I then tried DOI query for these 72 papers. The results showed that DOI queries worked: only two paper were not able to be identified through DOI query. Among these two, one paper could be identified through using a different index in title query. 
 
-In sum, (11-4) + 2 = 9 papers don't exist in the system of OpenAlex. 
+In sum, only two papers were not idetifiable in OpenAlex database. 
 
 ### 8. VISPUBDATA-OpenAlex Match-2
 
-Based on the result of VISPUBDATA-OpenAlex Match-1, I created the script of `get_vispd_openalex_match_2.py`. What this script does is the following:
+Based on the result of VISPUBDATA-OpenAlex Match-1, I created the script of `get_vispd_openalex_match_2.py`. What this script does is: 
 
-  1. Slighly modify the above mentioned five papers' titles (the four in no_result, and the one with `#` among the 56 paeprs with successful but potentially false results) for title queries using the `replace` function.
-
-  2. I said earlier that in `match_1`, there are 52 papers whose results are successful but potentially wrong. I checked them and found that 17 are indeed mistaken matches. Among these 17, 2 papers just do not exist on OpenAlex. Among the 15 that exist on OpenAlex, two one can be identified if I remove the `#` in title for the purpose of query. Then, there remain 14 papers. Among these, 5 can be idenfied via DOI query, and 9 can be identified if I use a different index in the title query results. TAHT IS WHAT I DID, I FIRST CHECK WHETHER A DOI IS IN `to_query_by_doi`, IF NOT, IT GOES THROUGH THE NORMAL PROCEDURE (TITLE QUERY -> CHECK RESULT COUNT -> DOI QUERY), IF YES, I'LL USE DOI QUERY INSTEAD. ALSO, IN THE NORMAL PROCEDURE, I'LL USE A DIFFERENT RESULT INDEX IF THE DOI IS IN `special_result_index_dict`. 
+  1. Use DOI query for 71 papers. 
+  2. Use a different index for title query for one paper.  
 
 The output file is `vispd_openalex_match_2.csv`. 
 
-I manaully checked the results of `vispd_openalex_match_2.csv` in the notebook of `workflow/notebooks/06-Checking-no-matching-and-no-result-titles-of_vispd_openalex_match_2.ipynb`. The no_result has 7 papers; those are the papers that simply don't exist in openalex. Then, among papers with successful results but potentially wrong, I saw that only two are indeed wrong matches. And these two are indeed inaccessible on openalex. 
+I manaully checked the results of `vispd_openalex_match_2.csv` in the notebook of `workflow/notebooks/06-Checking-no-matching-and-no-result-titles-of_vispd_openalex_match_2.ipynb`. The no_result has 1 paper;  It simply does not exist in openalex. I then checked how many papers' title AND DOI do not match with VISPUBDATA. I found that only one paper.  
 
-In sum, a totla of 7 + 2 = 9 papers among all the 3283 IEEE VIS papers do not exist on openalex. 
+In sum, a totla of 1+1 = 2 papers among all the 3242 IEEE VIS papers do not exist on openalex. 
 
 ### 9. GET PAPERS_TO_SUTDY
 
-`get_papers_to_study.py`, this step simply removes the nine papers inaccessible in OpenAlex from `vispd_plus_good_papers`. This results in a total of 3,233 DOIs. 
+`get_papers_to_study.py`, this step simply removes the nine papers inaccessible in OpenAlex from `vispd_plus_good_papers`. This results in a total of 3,240 DOIs. 
 
 ### 10. GET OPENALEX DFS
 
@@ -101,6 +102,8 @@ In this notebook, I first compared the number of authors in IEEE and OpenAlex. I
 Later on, I merged the two author datasets. After merging, I compared this merged dataset witht DBLP data from Vispubdata. I found that four papers' authors data were incorrect in my merged data. I corrected my data. The next step is to fill in author affiliation data. I found that around 50 authorships miss affiliation info. I manually filled it. While doing that, I manually updated the affiliation name, country origin, affiliation type, and sometimes author names in both IEEE and OpenAlex data. I had to manually collect 15 authors' affiliation. 
 
 After that, I merged the two datasets, and change affiliation type to binary types. 
+
+MORE DETAILS OF THIS PROCEDURE CAN BE FOUND IN THE COMMENT OF `get_merged_author_df.py`.
 
 ### 15. Get awards info
 
