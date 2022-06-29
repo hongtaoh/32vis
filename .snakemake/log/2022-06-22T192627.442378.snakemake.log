@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 202 of /Users/hongtaoh/Desktop/github/32visNEW/workflow/Snakefile:
-Missing input files for rule get_dois_2021:
-../data/raw/vispubdata.csv
