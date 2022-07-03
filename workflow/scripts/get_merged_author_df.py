@@ -5,7 +5,7 @@ input: ieee_author_df, openalex_author_df, papers_to_study
 output: merged_author_df
 
 Explanation:
-	In this notebook, I first compared the number of authors in IEEE and OpenAlex. I checked PDFs and confirmed 
+	In this script, I first compared the number of authors in IEEE and OpenAlex. I checked PDFs and confirmed 
 	that IEEE was wrong in one case, and missed data in the other case (the one that directs me to computer.org).
 	I corrected the wrong one in ieee and filled the missing one. 
 
