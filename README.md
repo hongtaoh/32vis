@@ -1,13 +1,13 @@
-# 32 years of IEEE Vis
+# 32 years of IEEE Vis: Authors, Fields of Study and Citations
 
-This repository contains data files and codes (data processing & analysis) for the paper of Thirty-two years of IEEE VIS. 
+This repository contains data files and codes (data processing & analysis) for the paper of Thirty-two years of IEEE VIS: Authors, Fields of Study and Citations. 
 
 ## Structure 
 
 This repository consists of four folders:
   1. `analyses_and_get_figures` contains Jupyter notebooks that get the reported statistics and figures in the Results section of our paper. 
   2. `data` are data files we created and analyzed.
-  3. `results` are the output figures generated from codes in `analyses_and_get_figures`. Figures in both the paper and the supplementary material are included here. 
+  3. `results` are the output figures generated from codes in `analyses_and_get_figures`. Figures in both the paper and the supplementary material are included. 
   4. `workflow` contains (1) scripts to obtain data, and (2) Jupyter notebooks to validate data. 
 
 `analyses_and_get_figures` and `results` are easy to understand. The most difficult and critical parts are `workflow` and `data`. For detailed data generation & processing procedures, refere to the README of the `workflow` folder. For detailed descriptions of data we generated, refer to the README of the `data` folder. 
