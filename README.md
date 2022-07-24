@@ -33,6 +33,9 @@ The most important data files in analysis are as follows:
   6. `data/processed/large/openalex_reference_concept_df.csv`
   7. `data/processed/openalex_refeernce_concept_df_unique.csv`
 
+### Large data
+
+The [`large`](https://github.com/hongtaoh/32vis/tree/master/data/processed/large) folder within `data/processed` is empty because GitHub does not allow uploading files larger than 100M. Large files are stored in the repository of [https://osf.io/zkvjm/](https://osf.io/zkvjm/) (OSF Storage -> large). 
 
 ## Dependencies 
 
