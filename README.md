@@ -55,7 +55,9 @@ requests
 ```
 All packages can be installed with `pip install pkgname`, for example, `pip install scikit-learn`. Note that to install `snakemake`, you need also `pip3 install "git+https://github.com/ashwinvis/datrie.git@python3.8-cythonize"`. `snakemake` is used in this project to control the workflow. For details, see my [tutorial on snakemake](https://github.com/hongtaoh/snakemake-tutorial). 
 
-We recommend `conda` and creating a virtural environment for this project. After installing [anaconda](https://www.anaconda.com/), you can create a virtual environment and install necessary packages:
+For citation analysis, we also used `R`. See [citation_analysis.R](https://github.com/hongtaoh/32vis/blob/master/analyses_and_get_figures/citation_analysis.R).
+
+For `python`, we recommend `conda` and creating a virtural environment. After installing [anaconda](https://www.anaconda.com/), you can create a virtual environment:
 
 ```
 conda create --name 32vis python=3.8
