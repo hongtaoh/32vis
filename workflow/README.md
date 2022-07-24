@@ -16,7 +16,7 @@ The only raw data we had is [Vispubdata](https://docs.google.com/spreadsheets/u/
 
 ### 2. Get titles and dois of VIS 2021 papers
 
-NOTE: BECAUSE CROSSREF API IS UNSTABLE, YIELDING DIFFERENT RESULTS FROM TIME TO TIME. WE DECIDED TO GET THE DOIS OF VIS2021 PAPERS AND PUT THE DATA INTO THE `raw` DATA FOLDER. THE INITIAL SCRIPT WE USED CAN BE FOUND IN `scripts/deprecated` FOLDER. 
+NOTE: BECAUSE CROSSREF API IS UNSTABLE, YIELDING DIFFERENT RESULTS FROM TIME TO TIME. WE DECIDED TO GET THE DOIS OF VIS2021 PAPERS AND PUT THE DATA INTO THE `raw` DATA FOLDER. THE INITIAL SCRIPT WE USED, I.E., `get_dois_2021.py`, CAN BE FOUND IN [`scripts/deprecated`](https://github.com/hongtaoh/32vis/tree/master/workflow/scripts/deprecated) FOLDER. 
 
 Vispubdata does not contain data for VIS 2021 papers. We had to obtain the data on our own. 
 
