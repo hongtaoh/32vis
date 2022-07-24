@@ -33,15 +33,52 @@ This project uses `python 3.8` with the following packages:
 snakemake
 pandas
 numpy
+matplitlib
+seaborn
+altair
 scikit-learn
+scipy
+plotnine
 beautifulsoup4
 selenium
 urllib3
 requests
 ```
-
 All packages can be installed with `pip install pkgname`, for example, `pip install scikit-learn`. Note that to install `snakemake`, you need also `pip3 install "git+https://github.com/ashwinvis/datrie.git@python3.8-cythonize"`. `snakemake` is used in this project to control the workflow. For details, see my [tutorial on snakemake](https://github.com/hongtaoh/snakemake-tutorial). 
 
+We recommend `conda` and creating a virtural environment for this project. After installing [anaconda](https://www.anaconda.com/), you can create a virtual environment and install necessary packages:
+
+```
+conda create --name 32vis python=3.8
+conda activate 32vis
+```
+
+Then you can install packages with `conda` or `pip`.
+
 ## Reproducibility
+
+Our work is designed to be reproducible. 
+
+### Re-generate data?
+
+If you want to reproduce our work from the very beginning, after installing the necessary packages mentioned above, you can delete all folders in `data` folder except for `raw` and `README.md`. 
+
+Then:
+
+```
+conda activate 31vis
+cd workflow
+snakemake --cores 1
+```
+
+This will generate all data again. Please note that 
+  1. We obtained data from the API of OpenAlex. However, OpenAlex updates its data every two weeks. This means that the data you will get will different from ours. The degree of differences is a function of time. For example, if you recreate the data ten years from now, our data will be totally different.
+  2. To crawl Google Scholar needs human participant due to the reCAPTCHA security checks. 
+
+After all data is obtained, you can run all files in [`analyses_and_get_figures`](https://github.com/hongtaoh/32vis/tree/master/analyses_and_get_figures) to reproduce our results. 
+
+### Okay with our current data?
+
+If you don't plan to re-generate all the data but just want to reproduce results based on data we already had, you can simply run all files in [`analyses_and_get_figures`](https://github.com/hongtaoh/32vis/tree/master/analyses_and_get_figures) directly. 
 
 
