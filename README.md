@@ -2,6 +2,15 @@
 
 This repository contains data files and codes (data processing & analysis) for the paper of Thirty-two years of IEEE VIS: Authors, Fields of Study and Citations. 
 
+## Table of Contents
+
+- [Structure](https://github.com/hongtaoh/32vis#structure)
+- [Important data](https://github.com/hongtaoh/32vis#important-data)
+- [Dependencies](https://github.com/hongtaoh/32vis#dependencies)
+- [Reproducibility](https://github.com/hongtaoh/32vis#reproducibility)
+  - [Re-generate data?](https://github.com/hongtaoh/32vis#re-generate-data)
+  - [Okay with our current data?](https://github.com/hongtaoh/32vis#okay-with-our-current-data)
+
 ## Structure 
 
 This repository consists of four folders:
@@ -54,6 +63,8 @@ conda activate 32vis
 ```
 
 Then you can install packages with `conda` or `pip`.
+
+You can also use the `environment.yml` and `requirements.yml` but they contain many packages that are not used at all. 
 
 ## Reproducibility
 
