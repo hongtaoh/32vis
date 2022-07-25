@@ -33,7 +33,7 @@ The most important data files in analysis are as follows:
   6. `data/processed/large/openalex_reference_concept_df.csv`
   7. `data/processed/openalex_refeernce_concept_df_unique.csv`
 
-### Public data
+### Data dicionaries for public data
 
 We have also made data that might be useful for other researcers working on scientometric analysis available on Google Sheets: https://docs.google.com/spreadsheets/d/1JRo33XurW28bGK_Snplno1dbRLDkSZf1T7JmpjNDvTw/
 
@@ -44,7 +44,7 @@ We have also made data that might be useful for other researcers working on scie
 - Title: Paper title as shown on [vispubdata](https://sites.google.com/site/vispubdata/home) and IEEE Xplore (for 2021 IEEEVIS papers)
 - DOI: Paper DOI
 - PaperType: either 'J' (Journal paper) or 'C' (conference paper). This data is from [vispubdata](https://sites.google.com/site/vispubdata/home). For IEEEVIS 2021 papers, we classified them all as 'J'
-- OpenAlex ID: The OpenAlex ID associated with this paper. With an ID, for example, `W3203914472`, you can assess this paper's metadata on OpenAlex through `https://api.openalex.org/works/W3203914472`
+- OpenAlex ID: The OpenAlex ID associated with this paper. With an ID, for example, `W3203914472`, you can assess this paper's metadata on OpenAlex through [`https://api.openalex.org/works/W3203914472`](https://api.openalex.org/works/W3203914472)
 - Number of References: Number of references as shown on OpenAlex (as of June 2022)
 - Number of Concepts: Number of concepts as shown on OpenAlex (as of June 2022)
 - Number of Citations: Number of citations as shown on OpenAlex (as of June 2022)
