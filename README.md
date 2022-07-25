@@ -6,6 +6,12 @@ This repository contains data files and codes (data processing & analysis) for t
 
 - [Structure](https://github.com/hongtaoh/32vis#structure)
 - [Important data](https://github.com/hongtaoh/32vis#important-data)
+  - [Data dicionaries for public data](https://github.com/hongtaoh/32vis#data-dicionaries-for-public-data)
+    - [VIS PAPER 1990-2021](https://github.com/hongtaoh/32vis#vis-paper-1990-2021)
+    - [VIS AUTHORS 1990-2021](https://github.com/hongtaoh/32vis#vis-authors-1990-2021)
+    - [VIS PAPER CONCEPTS](https://github.com/hongtaoh/32vis#vis-paper-concepts)
+    - [Google Scholar Citations](https://github.com/hongtaoh/32vis#google-scholar-citations)
+  - [Large data](https://github.com/hongtaoh/32vis#large-data)
 - [Dependencies](https://github.com/hongtaoh/32vis#dependencies)
 - [Reproducibility](https://github.com/hongtaoh/32vis#reproducibility)
   - [Re-generate data?](https://github.com/hongtaoh/32vis#re-generate-data)
