@@ -1,4 +1,4 @@
-# 32 years of IEEE Vis: Authors, Fields of Study and Citations
+# Thirty-two Years of IEEE VIS: Authors, Fields of Study and Citations
 
 This repository contains data files and codes (data processing & analysis) for the paper of Thirty-two years of IEEE VIS: Authors, Fields of Study and Citations. 
 
