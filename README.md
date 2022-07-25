@@ -33,6 +33,64 @@ The most important data files in analysis are as follows:
   6. `data/processed/large/openalex_reference_concept_df.csv`
   7. `data/processed/openalex_refeernce_concept_df_unique.csv`
 
+### Public data
+
+We have also made data that might be useful for other researcers working on scientometric analysis available on Google Sheets: https://docs.google.com/spreadsheets/d/1JRo33XurW28bGK_Snplno1dbRLDkSZf1T7JmpjNDvTw/
+
+#### VIS PAPER 1990-2021
+
+- Conference: The conference track of VIS papers. There are four tracks: InfoVis, SciVis, VAST, vis. Since 2021, IEEE VIS no longer distinguishes between conference tracsk and we assigned the term 'VIS' for all papers published in and after 2021
+- Year: The year this paper was published
+- Title: Paper title as shown on [vispubdata](https://sites.google.com/site/vispubdata/home) and IEEE Xplore (for 2021 IEEEVIS papers)
+- DOI: Paper DOI
+- PaperType: either 'J' (Journal paper) or 'C' (conference paper). This data is from [vispubdata](https://sites.google.com/site/vispubdata/home). For IEEEVIS 2021 papers, we classified them all as 'J'
+- OpenAlex ID: The OpenAlex ID associated with this paper. With an ID, for example, `W3203914472`, you can assess this paper's metadata on OpenAlex through `https://api.openalex.org/works/W3203914472`
+- Number of References: Number of references as shown on OpenAlex (as of June 2022)
+- Number of Concepts: Number of concepts as shown on OpenAlex (as of June 2022)
+- Number of Citations: Number of citations as shown on OpenAlex (as of June 2022)
+- Number of Authors: Number of authors
+- Cross-type Collaboration: Whether a paper involves collaborations among researchers from universities and non-educational affiliations (e.g., companies, facilities, government, healthcare, etc.)
+- Cross-country Collaboration: Whether a paper involves collaborations among researchers from different countries or regions
+- With US Authors: Whether a paper involves at least one author from the United States 
+- Both Cross-type and Cross-country Collaboration: Whether a paper is both a cross-type and a cross-country collaboration paper
+- Google Scholar Citation: Citation counts as shown on Google Scholar (as of June 2022)
+- Award: Whether a paper is an award-winning paper. Note that we exclude Test of Time awards
+- Award Name: If a paper is an award-winning one, what award did it get. BP: Best Paper; HM: Honorable Mention; BCS: Best Case Study
+- Award Track: The conference track that presented this paper this award
+
+#### VIS AUTHORS 1990-2021
+- Year: The year this paper was published
+- DOI: Paper DOI
+- Title: Paper title as shown on [vispubdata](https://sites.google.com/site/vispubdata/home) and IEEE Xplore (for 2021 IEEEVIS papers)
+- Number of Authors: Number of authors
+- Author Position: Author position
+- Author Name: Author name
+- OpenAlex Author ID: OpenAlex author ID
+- Affiliation Name: Author affiliation name
+- Affiliation country code: alpha-2 (ISO 3166) country code for affiliations
+- Affiliation Type: The type of an affiliation, as defined by [ROR](https://ror.org/)
+- Binary Type: The type of an affiliation, either education or non-education
+
+#### VIS PAPER CONCEPTS
+- Year: The year this paper was published
+- DOI: Paper DOI
+- Title: Paper title as shown on [vispubdata](https://sites.google.com/site/vispubdata/home) and IEEE Xplore (for 2021 IEEEVIS papers)
+- Number of Concepts: Number of concepts as shown on OpenAlex (as of June 2022)
+- Index of Concept: Index of Concept as shown on OpenAlex (as of June 2022)
+- Concept: Concept name
+- Concept ID: Concept ID on OpenAlex
+- Wikidata: Link to Wikidata page of a Concept
+- Level: The level of this Concept as defined by OpenAlex. Level 0 indicates root Concepts like Computer Science and Psychology. The larger the number, the more granualr a Concept is. 
+- Score: The score assigned to this Concept by OpenAlex. A higher score indicates this Concept is a better representation of a paper. 
+
+#### Google Scholar Citations
+- Year: The year this paper was published
+- DOI: Paper DOI
+- IEEE Title: Paper title as shown on IEEE Xplore (as of June 2022)
+- Title on Google Scholar: Paper title as shown on Google Scholar (as of June 2022)
+- Citation Link: Link to papers citing a VIS paper on Google Scholar (as of June 2022)
+- Citation Counts on Google Scholar: Citation counts on Google Scholar (as of June 2022)
+
 ### Large data
 
 The [`large`](https://github.com/hongtaoh/32vis/tree/master/data/processed/large) folder within `data/processed` is empty because GitHub does not allow uploading files larger than 100M. Large files are stored in the repository of [https://osf.io/zkvjm/](https://osf.io/zkvjm/) (OSF Storage -> large). 
