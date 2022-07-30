@@ -161,4 +161,14 @@ After all data is obtained, you can run all files in [`analyses_and_get_figures`
 
 If you don't plan to re-generate all the data but just want to reproduce results based on data we already had, you can simply run all files in [`analyses_and_get_figures`](https://github.com/hongtaoh/32vis/tree/master/analyses_and_get_figures) directly. 
 
+## Citation
 
+```
+@article{hao2022thirty,
+  title={Thirty-two Years of IEEE VIS: Authors, Fields of Study and Citations},
+  author={Hao, Hongtao and Cui, Yumian and Wang, Zhengxiang and Kim, Yea-Seul},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2022},
+  publisher={IEEE}
+}
+```
