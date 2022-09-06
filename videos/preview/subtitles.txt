@@ -1,0 +1,1 @@
+We collected various data on VIS papers and authors. We found that VIS has been increasingly popular and collaborative. However, the percentage and number of authors from non-educational affiliations have been declining. We also found that the topics, inspirations and impacts of VIS have been limited to the field of Computer Science. 
