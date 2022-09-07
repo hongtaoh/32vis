@@ -149,7 +149,7 @@ And we published our dataset
 
 34
 00:01:45,430 --> 00:01:48,775
-in the official website
+on the official website
 of our project.
 
 35
@@ -226,7 +226,7 @@ authors from universities
 
 51
 00:02:32,390 --> 00:02:35,390
-are non-educational
+and non-educational
 affiliations.
 
 52
