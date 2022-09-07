@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:04,380
+We collected various data
+on VIS papers and authors.
+
+2
+00:00:04,380 --> 00:00:06,150
+We found that VIS has been
+
+3
+00:00:06,150 --> 00:00:08,790
+increasingly popular
+and collaborative.
+
+4
+00:00:08,790 --> 00:00:10,890
+However, the percentage and
+
+5
+00:00:10,890 --> 00:00:13,410
+number of authors
+from non-educational
+
+6
+00:00:13,410 --> 00:00:15,749
+affiliations have been declining.
+
+7
+00:00:15,749 --> 00:00:18,300
+were also found that the topics,
+
+8
+00:00:18,300 --> 00:00:20,760
+inspirations and impacts of
+
+9
+00:00:20,760 --> 00:00:24,820
+VIS have been limited to the
+field of computer science.
+
