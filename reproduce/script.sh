@@ -1,9 +1,15 @@
+# download python
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.8
+
 # download and install pip
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py
+sudo apt-get update
+sudo apt install python3-pip 
 
 # install packages
-pip install pandas numpy matplitlib seaborn altair scikit-learn scipy plotnine beautifulsoup4 selenium urllib3 requests
+pip install pandas numpy matplotlib seaborn 
 
 # run script that generates the figure
 python3 get_figure.py

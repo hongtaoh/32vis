@@ -2,6 +2,10 @@
 
 This repository contains data files and codes (data processing & analysis) for the paper of Thirty-two years of IEEE VIS: Authors, Fields of Study and Citations. 
 
+## For recalicability committee:
+
+Please go to the folder of `reproduce` and simply run `bash script.sh`. 
+
 ## Table of Contents
 
 - [Structure](https://github.com/hongtaoh/32vis#structure)

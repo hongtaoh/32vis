@@ -2,4 +2,4 @@ paper title: 32 years of IEEE Vis: Authors, Fields of Study and Citations
 
 authors: Hongtao Hao, Yumian Cui, Zhengxiang Wang, Yea-Seul Kim
 
-operating system: MacOS
+operating system: Ubuntu 20.04.5 LTS
