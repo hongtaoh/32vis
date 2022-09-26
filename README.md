@@ -113,7 +113,7 @@ This project uses `python 3.8` with the following packages:
 snakemake
 pandas
 numpy
-matplitlib
+matplotlib
 seaborn
 altair
 scikit-learn
@@ -123,8 +123,11 @@ beautifulsoup4
 selenium
 urllib3
 requests
+lxml
 ```
-All packages can be installed with `pip install pkgname`, for example, `pip install scikit-learn`. `snakemake` is used for the workflow. For details, see my [tutorial on snakemake](https://github.com/hongtaoh/snakemake-tutorial). 
+All packages can be installed with `pip install pkgname`, for example, `pip install scikit-learn`. For `lxml`, use ` conda install -c anaconda lxml`.
+
+`snakemake` is used for the workflow. For details, see my [tutorial on snakemake](https://github.com/hongtaoh/snakemake-tutorial). 
 
 For citation analysis, we also used `R`. See [citation_analysis.R](https://github.com/hongtaoh/32vis/blob/master/analyses_and_get_figures/citation_analysis.R).
 
@@ -173,6 +176,7 @@ If you don't plan to re-generate all the data but just want to reproduce results
   author={Hao, Hongtao and Cui, Yumian and Wang, Zhengxiang and Kim, Yea-Seul},
   journal={IEEE Transactions on Visualization and Computer Graphics},
   year={2022},
+  doi={10.1109/TVCG.2022.3209422},
   publisher={IEEE}
 }
 ```
