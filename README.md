@@ -153,12 +153,13 @@ If you want to reproduce our work from the very beginning, after installing the 
 Then:
 
 ```
-conda activate 31vis
+conda activate 32vis
 cd workflow
 snakemake --cores 1
 ```
 
-This will generate all data again. Please note that 
+This will generate all data again. Please note that:
+
   1. We obtained data from the API of OpenAlex. However, OpenAlex updates its data every two weeks. This means that the data you will get will different from ours. The degree of differences is a function of time. For example, if you recreate the data ten years from now, our data will be totally different.
   2. To crawl Google Scholar needs human participant due to the reCAPTCHA security checks. 
 
