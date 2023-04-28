@@ -2,6 +2,10 @@
 
 This repository contains data files and codes (data processing & analysis) for the paper of Thirty-two years of IEEE VIS: Authors, Fields of Study and Citations. 
 
+## Updated Findings
+
+In Fig. 3(d) and 3(e), we showed that the number of citations for VIS from non-VIS papers has been increasing dramatically but we did not analyze the publication venues of these citation papers. We did it later and found that citations coming from *IEEE Transactions on Visualization and Computer Graphics* accounted for 12.4% of all 153,549 citations (undeduplicated). Citations from *Computer Graphics Forum*, HCI venues, PacificVis, and journals in the filed of Visualization such as *Information Visualization* and *Journal of Visualization* are also major sources. This indicate that **the impacts of VIS are mostly confined to visualization and HCI areas**. Detailed results are available at [https://hongtaoh.com/files/top_venues.html](https://hongtaoh.com/files/top_venues.html).
+
 ## For recalicability committee:
 
 Please go to the folder of `reproduce` and simply run `bash script.sh`. 
